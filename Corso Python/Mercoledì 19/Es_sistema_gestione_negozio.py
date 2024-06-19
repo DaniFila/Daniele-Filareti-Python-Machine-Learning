@@ -1,5 +1,6 @@
 inventario = ["pane","frutta","verdura","acqua","pasta"]
-
+amministratori = {"daniele": "1234",
+                  "pippo": "0000"}
 listino = {"pane": 4,
            "frutta": 2,
            "verdura": 3,
@@ -12,23 +13,43 @@ disponibilità = {"pane": 7,
            "acqua": 17,
            "pasta": 0}
 
-
+vendite = {}
 prodotti_cliente = []
-a = int(input("Vuoi avviare il sistema? (1 per SI, 0 per NO)"))
+a = int(input("Vuoi avviare il sistema? (1/0)"))
 if a == 1:
-    while True:
-        print("Visualizza inventario --- 1")
-        print("acquista articoli ------- 2")
-        print("visualizza inventario utente 3")
-        print("aggiungi articolo in inventario 4")
-        print("rimuovi articoli dall'inventario 5")
-        print("aggiorna listino e disponibilità 6")
-        print("numero diverso per uscire -- ")
+    login = input("vuoi entrare come admin? (1/0) ")                           ## per il tempo ho incasinato la indentazione, devo sistemarla domani
+                                                                              ## devo sistemare alcune cose 
+    while login == 1:
+        username = input("indicare nome utente ")
+        pasw = input("indicare la password")
+        if username in amministratori:
+            if amministratori[username] == pasw:
+                print("benvenuto amministratore")
+                print("")
+                print("seleziona azione")
+                print("rapporto delle vendite: 1")
+                print("visualizza stato corrente inventario: 2")
+                print("numero diverso per uscire")
+                azione_admin = input("indicare azione: ")
+                if azione_admin == 1:
+                    print(vendite)
+                elif azione_admin == 2:
+                    print(inventario)
+                else:
+                    print("azione non valida") 
+                    if login == 0:
+        print("Visualizza inventario: 1")
+        print("acquista articoli: 2")
+        print("visualizza inventario utente: 3")
+        print("aggiungi articolo in inventario:4")
+        print("rimuovi articoli dall'inventario: 5")
+        print("aggiorna listino e disponibilità: 6")
+        print("numero diverso per uscire")
         print("")
-        c = input("Seleziona azione ---------- ")
+        c = input("Seleziona azione: ")
         print("")
         if c == "1":
-            print(inventario)
+             print(inventario)
         elif c == "2":
             articolo = input("indicare articolo da acquistare ") 
             print("")
@@ -36,6 +57,7 @@ if a == 1:
                 if disponibilità.get(articolo) != 0:
                     prodotti_cliente.append(articolo)
                     disponibilità[articolo]-=1
+                    vendite[articolo] += 1
                 else:
                     print("prodotto non disponibile")
                     print("")
@@ -72,12 +94,11 @@ if a == 1:
                 disponibilità[prodotto1] = quantità
             else:
                 print("prodotto non disponibile")    
-
+        else: 
+         a == 0
 
 
         
-        else:
-            break  
                     
 
 
