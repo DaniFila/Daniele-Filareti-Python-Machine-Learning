@@ -1,13 +1,19 @@
 # PUNTO 4
 
 L = [] # lista per inserire numeri da input
-k = int(input("inserire un numero (-1 per terminare): "))  
-if k != -1:
+k = input("inserire un numero (-1 per terminare): ")
+if not k.isdigit():    # verifico che non si abbia digitato una lettera ma solo numeri interi
+    print("errore, richiede numero intero")
+ 
+if k != "-1" and k.isdigit():  # verifico che non si abbia digitato una lettera ma solo numeri interi e aggiungo in lista
     L.append(k)          # Ciclo con numeri presi in input e inseriti in L fin quando k == -1
-    while k != -1:
-        k = int(input("inserire un numero (-1 per terminare): "))
-        if k != -1:
-            L.append(k)
+while k != "-1":
+    k = input("inserire un numero (-1 per terminare): ")
+    if not k.isdigit:  # verifico che non si abbia digitato una lettera ma solo numeri interi
+        print("errore, richiede numero intero")
+        
+    if k != "-1" and k.isdigit():   # verifico che non si abbia digitato una lettera ma solo numeri interi e aggiungo in lista
+        L.append(k)
 
 
 # 3
