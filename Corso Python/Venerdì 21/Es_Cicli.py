@@ -66,14 +66,16 @@ while start:
 
                         for i in range(0,N,S):
                             print(i)
+#------------------------------------------------
+#                   # PUNTO 4                            
                     elif Z == "4":
-                        primo = True
-                        n = int(input("indicare numero da verificare: "))
+                        primo = True  #variabile per verifica primo
+                        n = int(input("indicare numero da verificare: ")) #richiesta numero primo
                         for i in range(2,n-1):
-                            if n%i==0:
+                            if n%i==0:    #scan per verifica divisori di n
                                 primo = False
                         if primo:
-                            print("Il numero è primo")
+                            print("Il numero è primo")   # stampe dopo verifica 
                             print("")
                         else:
                             print("Il numero non è primo")
