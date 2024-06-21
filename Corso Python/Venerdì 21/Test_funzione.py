@@ -8,9 +8,16 @@ def verifica_primo(n):
     else:
         return print("non è un numero primo")
 
+def verifica_intero(a):
+    if not a.isdigit():
+        return False
+    return True
 
 
 
-N = int(input("Inserire un numero per la verifica: "))
+N = input("Inserire un numero per la verifica: ")
+while not verifica_intero(N):
+    print("Errore")
+    N = input("Inserire un numero per la verifica: ")
 
-verifica_primo(N)
+verifica_primo(int(N))
