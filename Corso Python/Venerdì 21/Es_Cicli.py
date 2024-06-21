@@ -15,7 +15,7 @@ while start:
     if f == "1":
         username = input("indicare nome utente ")          # si richiede in input username
         pasw = input("indicare la password ")               # si richiede in input password
-        if username in database_clienti:        # si verifica se username si trova in dizionario amministratori
+        if username in database_clienti:        # si verifica se username si trova in dizionario 
             if database_clienti[username] == pasw:     # se si, si confronta username con password nel dizionario e si verifica se corrispondono
                 print("")
                 utente = True 
@@ -24,6 +24,7 @@ while start:
                 print("Punto 1: ")
                 print("Punto 2: ")
                 print("Punto 3: ")
+                print("Punto 4: ")
                 print("Exit: (qualsiasi tasto): ")
 
 
@@ -65,7 +66,18 @@ while start:
 
                         for i in range(0,N,S):
                             print(i)
-
+                    elif Z == "4":
+                        primo = True
+                        n = int(input("indicare numero da verificare: "))
+                        for i in range(2,n-1):
+                            if n%i==0:
+                                primo = False
+                        if primo:
+                            print("Il numero è primo")
+                            print("")
+                        else:
+                            print("Il numero non è primo")
+                            print("")            
                     else:
                         print("")
                         print("Eseguire login 1: ")
