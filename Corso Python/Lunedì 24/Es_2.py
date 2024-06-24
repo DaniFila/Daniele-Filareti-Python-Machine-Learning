@@ -24,5 +24,7 @@ elif z == "3":
 elif z == "4":
     print("La divisione è:", n1/n2)
 elif z == "5":
+    print("Il resto della divisione è:", n1%n2)    
+elif z == "6":
     print("La potenza è:", n1**n2)
    
