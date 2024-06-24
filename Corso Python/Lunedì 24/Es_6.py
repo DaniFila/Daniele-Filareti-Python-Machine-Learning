@@ -6,9 +6,7 @@ while not n.isnumeric():
     n = input("Inserire un numero: ")
 
 
-if int(n)%2 != 0:
-    verifica_pari = False
-
+if int(n)%2 != 0: verifica_pari = False
 
 
 dizionario["quadrato"] = int(n)*2
