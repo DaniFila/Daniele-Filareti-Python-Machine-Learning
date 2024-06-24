@@ -8,5 +8,5 @@ for i in range(b,2024):
 weekend = 0
 for i in range(c,6):
     weekend+=1
-print("Il tuo none è", a,"hai",età,"e mancano",weekend,"al weekend")
+print("Il tuo nome è", a,"hai",età,"e mancano",weekend,"al weekend")
 
