@@ -8,7 +8,7 @@ e fiorito.’
 "La" appare 2 volte, lunghezza 2.
 """
 
-stringa=input("Inserire una stringa")
+stringa=input("Inserire una stringa: ")
 punteggiatura="!,.;-"
 for let in punteggiatura:
     stringa=stringa.replace(let,"")
@@ -21,7 +21,6 @@ rip=[]
 contr=False
 for parola in lista:
     count=lista.count(parola)
-    print("parola", parola, count)
     if count>1 and parola not in par:
             par.append(parola)
             rip.append(count)
@@ -48,7 +47,9 @@ dizionario = {}
 contr = False
 for parola in lista:
     if lista.count(parola) >1:
-        dizionario[parola] = lista.count(parola)
+        dizionario[parola] = {}
+        dizionario[parola]["count"] = lista.count(parola)
+        dizionario[parola]["lunghezza"] = len(parola)
         contr = True
 
 

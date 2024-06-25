@@ -9,7 +9,9 @@ dizionario = {}
 contr = False
 for parola in lista:
     if lista.count(parola) >1:
-        dizionario[parola] = lista.count(parola)
+        dizionario[parola] = {}
+        dizionario[parola]["count"] = lista.count(parola)
+        dizionario[parola]["lunghezza"] = len(parola)
         contr = True
 
 
