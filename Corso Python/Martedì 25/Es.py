@@ -28,4 +28,6 @@ for alunno in alunni:
     for materia in alunni[alunno]:
         somma+= alunni[alunno][materia]
         count+=1
-    print("La media di", alunno, "è", somma/count)    
+    print("La media di", alunno, "è", somma/count)  
+    count = 0
+    somma = 0  
