@@ -5,15 +5,11 @@ def test_palindroma(s):
     return True
 
 
-
-
+  
 def main():
     stringa = input("Inserire la stringa: ")
     stringa_no_space = stringa.replace(" ","")
-    if test_palindroma(stringa_no_space):
-        print("E' palindroma")
-    else:
-        print("Non è palindroma")    
+    print("E' palindroma") if test_palindroma(stringa_no_space) else print("Non è palindroma")    
 
 
 
