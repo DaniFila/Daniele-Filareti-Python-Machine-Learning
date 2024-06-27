@@ -26,14 +26,24 @@ def conversione(a):
             dizionario[nome].append(int(elemento))
     return dizionario
 
+def verifica_database():
+    try:
+        database = lettura()
+    except:
+        scrittura("")
+        database = lettura()
+    d = ""
 
 
-database = lettura()
-if database != "":    
-    database = pulizia(database)
-    database = conversione(database)
-else:
-    database = {}
+    vuoto = True
+    if database != "":   
+        vuoto = False
+        database = conversione(database)
+        database = pulizia(database)
+    else:
+        database = {}
+    return database,vuoto
+
 
 
 print("\nGestione Database Studenti")
@@ -44,12 +54,13 @@ print("4. Elimina alunno")
 print("5. Elimina voto di un alunno")
 print("0. Esci")
 
-
+d = ""
 
 while True:
+    database,vuoto = verifica_database()
     z = input("Inserire opzione: ")
     if z == "1":
-        if database != "":
+        if not vuoto:
             for alunno in database:
                 somma = 0
                 count = 0
@@ -76,7 +87,7 @@ while True:
                 v = False
         scrittura(database)
     elif z == "3":
-        if database != "":
+        if not vuoto:
             s_nome = input("Indicare il nome dell'alunno: ")
             if s_nome in database:
                 s_voto = input("Indicare il voto: ")
@@ -89,17 +100,20 @@ while True:
         else:
             print("Il database è vuoto")
     elif z == "4":
-        if database != "":
+        if not vuoto:
             e_nome = input("Indicare nome alunno da eliminare: ")
             if e_nome in database:
-                database.pop(e_nome)
-                scrittura(database)
+                database.remove(e_nome)
+                if database.key():
+                    scrittura(database)
+                else:
+                    scrittura(d)
             else:
                 print("Nome non presente")
         else:
             print("Il database è vuoto")  
     elif z == "5":
-        if database != "":
+        if not vuoto:
             v_nome = input("Indicare nome alunno per voto da eliminare: ")
             if v_nome in database:
                 print("I voti di",v_nome,"sono:",database[v_nome])
@@ -119,6 +133,8 @@ while True:
             
     elif z == "0":
         break
+    else:
+        print("Comando non valido")
         
 
 
