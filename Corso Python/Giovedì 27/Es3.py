@@ -41,9 +41,10 @@ print("4. Elimina alunno")
 print("5. Elimina voto di un alunno")
 print("0. Esci")
 
-z = input("Inserire opzione: ")
+
 
 while True:
+    z = input("Inserire opzione: ")
     if z == "1":
         for alunno in database:
             somma = 0
@@ -78,8 +79,8 @@ while True:
         else:
             print("Nome non presente in elenco")
         scrittura(database)
-
-    break
+    elif z == "0":
+        break
         
 
 
