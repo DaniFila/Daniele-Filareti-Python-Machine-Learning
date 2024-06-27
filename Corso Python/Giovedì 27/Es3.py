@@ -103,7 +103,7 @@ while True:
         if not vuoto:
             e_nome = input("Indicare nome alunno da eliminare: ")
             if e_nome in database:
-                database.remove(e_nome)
+                database.pop(e_nome)
                 if database.key():
                     scrittura(database)
                 else:

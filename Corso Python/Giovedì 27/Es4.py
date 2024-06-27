@@ -4,7 +4,6 @@
 in prestito o disponibili
 -eliminare o aggiungere un libro"""
 import csv
-database = "\n"
 def leggi_file(file_path):
     # Legge il file CSV e ritorna una lista di liste con i dati dei libri
     database = []
@@ -16,8 +15,7 @@ def leggi_file(file_path):
 def scrivi_file(file_path, database):
     # Scrive i dati del database nel file CSV
     with open(file_path, 'w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerows(database)
+        file.writelines(str(database))
 def aggiungi_libro(biblioteca, titolo):
     if titolo in biblioteca:
         print(f"il libro '{titolo}' è già presente nella biblioteca. ")
@@ -46,6 +44,9 @@ def verifica_esistenza_database():
         scrivi_file("Giovedì 27/Es4.txt",database)
 
     return database
+
+database = {"titolo":"disponibile","titolo2":"prestato"}
+
 accesso_admin = False
 accesso_utente = False
 amministratori = {"pippo":"1234","franco":"0000","admin":"admin"}
@@ -85,3 +86,9 @@ while not accesso_admin and not accesso_utente:
     else:
         print("selezione non valida")
 
+"""while accesso_admin:
+    menù_admin
+    h = input("seleziona opzione: ")
+    if h == "1":"""
+
+scrivi_file("Giovedì 27/Es4.csv",database)
