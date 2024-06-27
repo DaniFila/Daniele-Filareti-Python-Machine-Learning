@@ -79,6 +79,13 @@ while True:
         else:
             print("Nome non presente in elenco")
         scrittura(database)
+    elif z == "4":
+        e_nome = input("Indicare nome alunno da eliminare: ")
+        if e_nome in database:
+            database.pop(e_nome)
+            scrittura(database)
+        else:
+            print("Nome non presente")    
     elif z == "0":
         break
         
