@@ -45,8 +45,6 @@ def verifica_ruolo(scelta_ruolo):
             else:
                 return False
 
-
-
 def scrittura(s,mod):
     with open("Venerdì 28/file.csv",mod) as file:
         file.write(s)
@@ -55,7 +53,6 @@ def lettura():
     with open("Venerdì 28/file.csv","r") as file:
         dato=file.read()
     return   dato
-
 
 def verifica_db():
     db_vuoto=True
@@ -68,8 +65,6 @@ def verifica_db():
     
     
     return db,db_vuoto
-
-db,db_vuoto= verifica_db()
 
 def aggiungi():
     scelta_ruolo=input("1 per portiere\n2 per difensore\n3 centrocampista\n4 attacante\n")
@@ -126,15 +121,14 @@ def menu():
     print("Elimina Calciatore: 3")
     print("Exit: 4")
 
-
 while True:
+    db,db_vuoto= verifica_db()
     menu()
     a = input("Indicare scelta: ")
     print("")
     if a == "1":
         aggiungi()
     elif a == "2":
-        db,db_vuoto= verifica_db()
         visualizza_rosa()
     elif a == "3":
         pass
