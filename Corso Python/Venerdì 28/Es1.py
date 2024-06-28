@@ -61,40 +61,42 @@ def verifica_db():
     db_vuoto=True
     try:
         db=lettura()
+        if len(db)>1:
+            db_vuoto = False
     except :
         db=scrittura("","w")
-    if len(db)>0:
-        db_vuoto=False
+    
+    
     return db,db_vuoto
 
 db,db_vuoto= verifica_db()
 
 def aggiungi():
-    scelta_ruolo=input("1 per portiere, 2 per difensore, 3 centrocampista, 4 attacante")
+    scelta_ruolo=input("1 per portiere\n2 per difensore\n3 centrocampista\n4 attacante\n")
     if scelta_ruolo== "1":
         if verifica_ruolo(scelta_ruolo):
-            nome=input("inidca il nome del calciatore")
+            nome=input("inidca il nome del calciatore ")
             dato="Portiere"+","+nome+"\n"
             scrittura(dato,"a")
         else:
             print("Superato limite")
     elif scelta_ruolo== "2":
         if verifica_ruolo(scelta_ruolo):
-            nome=input("inidca il nome del calciatore")
+            nome=input("inidca il nome del calciatore ")
             dato="Difensore"+","+nome+"\n"
             scrittura(dato,"a")
         else:
             print("Superato limite")
     elif scelta_ruolo== "3":
         if verifica_ruolo(scelta_ruolo):
-            nome=input("inidca il nome del calciatore")
+            nome=input("inidca il nome del calciatore ")
             dato="Centrocampista"+","+nome+"\n"
             scrittura(dato,"a")
         else:
             print("Superato limite")
     elif scelta_ruolo== "4":
         if verifica_ruolo(scelta_ruolo):
-            nome=input("inidca il nome del calciatore")
+            nome=input("inidca il nome del calciatore ")
             dato="Attaccante"+","+nome+"\n"
             scrittura(dato,"a")
         else:
@@ -110,23 +112,33 @@ def visualizza_rosa():
             righe = db.split("\n")
             for riga in righe:
                 riga = riga.split(",")
-                
+                if riga[0].isalpha():
+                    print(riga[0],riga[1])
+        else:
+            riga = db.split(",")
+            print(riga[0],riga[1])
 
 def menu():
+    print("")
     print("Benvenuto allenatore!")
     print("Inserire calciatore: 1")
     print("Visualizza squadra: 2")
-    print("Exit: 3")
+    print("Elimina Calciatore: 3")
+    print("Exit: 4")
 
 
 while True:
     menu()
     a = input("Indicare scelta: ")
+    print("")
     if a == "1":
         aggiungi()
     elif a == "2":
-        pass
+        db,db_vuoto= verifica_db()
+        visualizza_rosa()
     elif a == "3":
+        pass
+    elif a == "4":
         print("Arrivederci")
         break
     else:
