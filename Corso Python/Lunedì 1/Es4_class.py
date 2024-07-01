@@ -18,7 +18,8 @@ class Ristorante:
     def aggiungi_menu(self):   # funzione per aggiungere pietanza al dizionario menu con il prezzo
         cibo = input("Indicare pietanza: ")
         prezzo = input("Indicare il prezzo: ")
-        self.menu[cibo] = prezzo
+        tipologia = input("Indicare la sua tipologia: ")
+        self.menu[cibo] = Cibo(cibo,tipologia,prezzo)  # mi salva nel dizionario l'oggetto cibo con le caratteristiche indicate in input
     def togli_menu(self):  # funzione per eliminare pietanza dal menu dizionario
         cibo = input("indicare pietanza da eliminare: ")
         if cibo in self.menu:
@@ -31,10 +32,27 @@ class Ristorante:
             print("Il menu è vuoto")
         else:    
             for i in self.menu:
-                print(i,"Prezzo:",self.menu[i])
+                print(self.menu[i])
     def descrivi_ristorante(self):  # funzione che descrive il ristorante indicando il nome e la tipologia di cucina
         print(f"Questo ristorante si chiama {self.nome} e la tipologia della cucina è: {self.tipo_cucina}")
 
 
+
+
+class Cibo:
+    def __init__(self,nome,tipologia,prezzo):  # parametri per creare oggetto cibo
+        self.nome = nome
+        self.tipologia = tipologia
+        self.prezzo = prezzo
+
+    def __str__(self):  # funzione della classe per andare a fare la stampa dell'oggetto str
+        return f"Il nome di questa pietanza è: {self.nome}, la sua tipologia è: {self.tipologia}, il suo prezzo è: {self.prezzo}"
+
+
+
+
 rist1 = Ristorante("Stella","Pizzeria")
 
+rist1.aggiungi_menu()
+
+rist1.stampa_menu()
