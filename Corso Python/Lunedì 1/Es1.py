@@ -21,10 +21,10 @@ def verifica_db():  # Funzione che verifica esistenza del file per poterlo copia
     return db,db_vuoto
 
 def menu(): # Funzione che stampa le operazione che si possono svolgere nel programma con selezione e ritorno del valore indicato dall'utente
-    info_menu = """Inserisci 1 per aggiungere numero\n
-    Inserisci 2 per visualizzare rubrica\n
-    Inserisci 3 per eliminare numero dalla rubrica\n
-    Inserisci 4 per uscire\n"""
+    info_menu = """\nInserisci 1 per aggiungere numero\n
+Inserisci 2 per visualizzare rubrica\n
+Inserisci 3 per eliminare numero dalla rubrica\n
+Inserisci 4 per uscire\n"""
 
     scelta_menu = input(info_menu)
     
@@ -36,6 +36,7 @@ def aggiungi(): #Funzione che permette l'inserimento nella rubrica telefonica un
     num = input("Inserire numero di telefono: ")
     dato = nome+","+cognome+","+num+"\n"
     scrittura(dato,"a")
+    print("\nNumero inserito con successo!")
 
 def visualizza(): # Funzione che permette di visualizzare il contenuto della rubrica facendo dei controlli sulla lunghezza per dividere le righe in lista e per ogni riga separare i dati dalla virgola per poterli andare a stampare con l'indice della lista della riga, se il file contiene solo una riga si divide dalle virgole e si stampa
     if db_vuoto:
@@ -50,9 +51,10 @@ def visualizza(): # Funzione che permette di visualizzare il contenuto della rub
         else:
             riga = db.split(",")
             print(riga[0],riga[1],riga[2])
-         
+
+
 while True: # Ciclo dove vengono richiamate le varie funzioni partendo dal menu e verificando la scelta dell'utente effettuando le varie operazioni
-    db,db_vuoto = verifica_db
+    db,db_vuoto = verifica_db()
     scelta_menu = menu()
     if scelta_menu == "1":
         aggiungi()
