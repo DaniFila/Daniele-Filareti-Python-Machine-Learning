@@ -3,10 +3,15 @@ class Libro:
         self.titolo = titolo
         self.autore = autore
         self.pagine = pagine
+        self.paginel = []
 
     def __str__(self):
         return f"Il libro {self.titolo} è stato scritto da {self.autore} è ha {self.pagine} pagine."
 
+    def crea_pagine(self):
+        for i in range(1,self.pagine+1):
+            contenuto = input("contenuto")
+            self.paginel.append(Pagina(i,contenuto))
 
 class Biblioteca:
     def crea_libro():
@@ -21,6 +26,15 @@ class Biblioteca:
                 break 
         return libri
             
+
+
+class Pagina:
+    def __init__(self,numero,contenuto):
+        self.numero = numero
+        self.contenuto = contenuto
+    def __str__(self):
+        return f"Pagina {self.numero}: {self.contenuto}"
+    
     
 
 
