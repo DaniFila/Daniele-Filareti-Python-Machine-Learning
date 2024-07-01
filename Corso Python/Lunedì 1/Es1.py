@@ -52,7 +52,28 @@ def visualizza(): # Funzione che permette di visualizzare il contenuto della rub
             riga = db.split(",")
             print(riga[0],riga[1],riga[2])
 
+def elimina(): # Funzione che permette di ricercare un numero di telefono per eliminarlo prendendo i dati nel file scomponendo le righe e successivamente ricompattarlo in stringa
+    trov = False
+    if db_vuoto:
+        print("La rubrica è vuota!")
+    else:
+        numero = input("Indicare numero di telefono da eliminare: ")
+        righe = db.split("\n")
+        for riga in righe:
+            if numero == riga.split(",")[2]:
+                righe.remove(riga)
+                print("Libro eliminato!")
+                trov = True
+                if len(righe) >1:
+                    righe = "\n".join(righe)
+                else:
+                    righe = "".join(righe)
 
+                scrittura(righe, "w")
+            
+            elif not trov:
+                print("Numero non trovato!")
+                
 while True: # Ciclo dove vengono richiamate le varie funzioni partendo dal menu e verificando la scelta dell'utente effettuando le varie operazioni
     db,db_vuoto = verifica_db()
     scelta_menu = menu()
@@ -61,7 +82,7 @@ while True: # Ciclo dove vengono richiamate le varie funzioni partendo dal menu 
     elif scelta_menu == "2":
         visualizza()
     elif scelta_menu == "3":
-        pass
+        elimina()
     elif scelta_menu == "4":
         print("Arrivederci")
         break
