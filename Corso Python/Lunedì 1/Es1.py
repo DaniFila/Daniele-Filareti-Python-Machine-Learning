@@ -1,11 +1,11 @@
 def lettura():     # Funzione per lettura file e salvataggio del contenuto per utilizzo nel programma
-    with open("Lunedì 1/Es1.py","r") as file:
+    with open("Lunedì 1/Es1.csv","r") as file:
         a = file.read()
 
     return a
 
 def scrittura(s,mod):   # Funzione che permette la scrittura su file in modalità scelta dall'utente e stringa data
-    with open("Lunedì 1/Es1.py",mod) as file:
+    with open("Lunedì 1/Es1.csv",mod) as file:
         file.write(s)
 
 def verifica_db():  # Funzione che verifica esistenza del file per poterlo copiare nel programma all'utilizzo ed eventualmente crea file vuoto e restituisce con una verifica un booleano che indica se il file contiene dati
