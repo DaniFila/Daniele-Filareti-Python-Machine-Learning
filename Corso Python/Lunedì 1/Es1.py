@@ -30,13 +30,12 @@ Inserisci 4 per uscire\n"""
     
     return scelta_menu
 
-def aggiungi(): #Funzione che permette l'inserimento nella rubrica telefonica un nuovo numero di telefono formattato con nome,cognome,numero nel file
+def aggiungi(): # Funzione che permette l'inserimento nella rubrica telefonica un nuovo numero di telefono formattato con nome,cognome,numero nel file
     nome = input("Inserire nome: ")
     cognome = input("Inserire cognome: ")
     num = input("Inserire numero di telefono: ")
     dato = nome+","+cognome+","+num+"\n"
     scrittura(dato,"a")
-    print("\nNumero inserito con successo!")
 
 def visualizza(): # Funzione che permette di visualizzare il contenuto della rubrica facendo dei controlli sulla lunghezza per dividere le righe in lista e per ogni riga separare i dati dalla virgola per poterli andare a stampare con l'indice della lista della riga, se il file contiene solo una riga si divide dalle virgole e si stampa
     if db_vuoto:
@@ -71,9 +70,9 @@ def elimina(): # Funzione che permette di ricercare un numero di telefono per el
 
                 scrittura(righe, "w")
             
-            elif not trov:
-                print("Numero non trovato!")
-                
+        if not trov:
+            print("Numero non trovato!")
+
 while True: # Ciclo dove vengono richiamate le varie funzioni partendo dal menu e verificando la scelta dell'utente effettuando le varie operazioni
     db,db_vuoto = verifica_db()
     scelta_menu = menu()
@@ -85,8 +84,6 @@ while True: # Ciclo dove vengono richiamate le varie funzioni partendo dal menu 
         elimina()
     elif scelta_menu == "4":
         print("Arrivederci")
-        break
+        elimina()
     else:
         print("Scelta non valida")
-
-
