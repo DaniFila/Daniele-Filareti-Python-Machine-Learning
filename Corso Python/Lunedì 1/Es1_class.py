@@ -1,7 +1,6 @@
 class Punto:
     x = 0
     y = 0
-    
     def muovi(self,dx,dy):
         self.x = dx
         self.y = dy
