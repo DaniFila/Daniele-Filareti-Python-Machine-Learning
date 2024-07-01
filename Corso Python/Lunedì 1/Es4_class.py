@@ -28,9 +28,11 @@ class Ristorante:
         else:
             print("Cibo non trovato")
     def stampa_menu(self):  # funzione per stampare menu se non è vuoto con verifica e avviso eventuale
+        # peso = {"primo piatto":1,"secondo piatto":2,"bevande":3}
         if self.menu == {}:
             print("Il menu è vuoto")
         else:    
+            # menu_ordinato = sorted(self.menu.values()...
             for i in self.menu:
                 print(self.menu[i])
     def descrivi_ristorante(self):  # funzione che descrive il ristorante indicando il nome e la tipologia di cucina
