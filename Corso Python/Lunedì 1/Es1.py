@@ -84,6 +84,6 @@ while True: # Ciclo dove vengono richiamate le varie funzioni partendo dal menu 
         elimina()
     elif scelta_menu == "4":
         print("Arrivederci")
-        elimina()
+        break
     else:
         print("Scelta non valida")
