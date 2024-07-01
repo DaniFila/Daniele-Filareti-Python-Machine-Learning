@@ -10,7 +10,7 @@ class Libro:
 
     def crea_pagine(self):
         for i in range(1,self.pagine+1):
-            contenuto = input("contenuto ")
+            contenuto = input("Indicare contenuto pagina: ")
             self.paginel.append(Pagina(i,contenuto))
 
     def stampa_pagine(self):
