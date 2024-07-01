@@ -29,3 +29,11 @@ def menu(): # Funzione che stampa le operazione che si possono svolgere nel prog
     scelta_menu = input(info_menu)
     
     return scelta_menu
+
+def aggiungi(): #Funzione che permette l'inserimento nella rubrica telefonica un nuovo numero di telefono formattato con nome,cognome,numero nel file
+    nome = input("Inserire nome: ")
+    cognome = input("Inserire cognome: ")
+    num = input("Inserire numero di telefono: ")
+    dato = nome+","+cognome+","+num+"\n"
+    scrittura(dato,"a")
+    
