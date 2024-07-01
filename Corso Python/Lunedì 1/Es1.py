@@ -19,3 +19,13 @@ def verifica_db():  # Funzione che verifica esistenza del file per poterlo copia
 
 
     return db,db_vuoto
+
+def menu(): # Funzione che stampa le operazione che si possono svolgere nel programma con selezione e ritorno del valore indicato dall'utente
+    info_menu = """Inserisci 1 per aggiungere numero\n
+    Inserisci 2 per visualizzare rubrica\n
+    Inserisci 3 per eliminare numero dalla rubrica\n
+    Inserisci 4 per uscire\n"""
+
+    scelta_menu = input(info_menu)
+    
+    return scelta_menu
