@@ -10,8 +10,13 @@ class Libro:
 
     def crea_pagine(self):
         for i in range(1,self.pagine+1):
-            contenuto = input("contenuto")
+            contenuto = input("contenuto ")
             self.paginel.append(Pagina(i,contenuto))
+
+    def stampa_pagine(self):
+        for i in range(len(self.paginel)):
+            print(self.paginel[i])
+
 
 class Biblioteca:
     def crea_libro():
@@ -32,13 +37,20 @@ class Pagina:
     def __init__(self,numero,contenuto):
         self.numero = numero
         self.contenuto = contenuto
+    
     def __str__(self):
         return f"Pagina {self.numero}: {self.contenuto}"
     
-    
+
+libr1 = Libro("boh","sapim",2)
+
+libr1.crea_pagine()
+
+libr1.stampa_pagine()
 
 
-libr = Biblioteca.crea_libro()
+
+# libr = Biblioteca.crea_libro()
 
 
 
