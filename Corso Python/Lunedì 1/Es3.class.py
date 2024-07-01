@@ -10,17 +10,24 @@ class Libro:
 
 class Biblioteca:
     def crea_libro():
-        titolo = input("Inserire titolo: ")
-        autore = input("Inserire autore: ")
-        pagine = input("Inserire pagine: ")
-        return Libro(titolo,autore,pagine)
+        libri =[]
+        while True:
+            titolo = input("Inserire titolo: ")
+            autore = input("Inserire autore: ")
+            pagine = input("Inserire pagine: ")
+            libri.append(Libro(titolo,autore,pagine))
+            a = input("Vuoi aggiungere un nuovo libro (si per continuare)? ")
+            if a != "si":
+                break 
+        return libri
+            
     
 
 
 libr = Biblioteca.crea_libro()
 
 
-print(libr)
+
 
 
 
