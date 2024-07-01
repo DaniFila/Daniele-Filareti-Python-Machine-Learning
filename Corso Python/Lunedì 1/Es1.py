@@ -36,4 +36,18 @@ def aggiungi(): #Funzione che permette l'inserimento nella rubrica telefonica un
     num = input("Inserire numero di telefono: ")
     dato = nome+","+cognome+","+num+"\n"
     scrittura(dato,"a")
-    
+
+def visualizza(): # Funzione che permette di visualizzare il contenuto della rubrica facendo dei controlli sulla lunghezza per dividere le righe in lista e per ogni riga separare i dati dalla virgola per poterli andare a stampare con l'indice della lista della riga, se il file contiene solo una riga si divide dalle virgole e si stampa
+    if db_vuoto:
+        print("Non ci sono numeri in rubrica")
+    else:
+        if len(db) >1:
+            righe = db.split("\n")
+            for riga in righe:
+                riga = riga.split(",")
+                if riga[0].isalpha():
+                    print(riga[0],riga[1],riga[2])
+        else:
+            riga = db.split(",")
+            print(riga[0],riga[1],riga[2])
+         
