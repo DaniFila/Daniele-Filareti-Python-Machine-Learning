@@ -9,9 +9,6 @@ class Prodotto:
     def __str__(self):  # metodo per descrizione prodotto
         return f"{self.nome} costo di produzione: {self.costo_produzione}, il prezzo di vendita è {self.prezzo_vendita}"
     
-
-
-
 class Elettronica:
     def __init__(self,prodotto): # attributi dell'istanza
         self.prodotto = prodotto
@@ -19,16 +16,12 @@ class Elettronica:
     def garanzia(self,g): # metodo per dare la garanzia
         self.garanzia = g
 
-
 class Abbigliamento:
     def __init__(self,prodotto): # attributi dell'istanza
         self.prodotto = prodotto
         self.materiali = "non definito" 
     def materiale(self,m): # metodo per indicare materiale
         self.materiali = m
-
-
-
 
 class Fabbrica:
     def __init__(self): 

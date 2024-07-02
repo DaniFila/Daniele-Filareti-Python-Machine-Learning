@@ -5,8 +5,6 @@ class MembroSquadra: # classe padre
     def descrivi(self): # metodo per descrivere membro giocatore
         print(f"Nome Giocatore: {self.nome}, Età: {self.età}")
 
-
-
 class Giocatore(MembroSquadra): #classe figlia
     gioca = False
     def __init__(self, nome, età,ruolo,num_maglia): 
@@ -28,7 +26,6 @@ class Giocatore(MembroSquadra): #classe figlia
         super().descrivi()
         print(f"ruolo:{self.ruolo}, numero maglia:{self.num_maglia}")
     
-
 class Allenatore(MembroSquadra): # classe figlia
     def __init__(self, nome,età,anni_esperienza):
         Allenatore.__init__(self,nome,età)
@@ -38,7 +35,6 @@ class Allenatore(MembroSquadra): # classe figlia
     def info(self): # metodo per stampare informazioni allenatore
         super().descrivi()
         print(f"Anni di esperienza: {self.anni_esperienza}")
-
 
 class Assistente(MembroSquadra): # classe figlia
     def __init__(self, nome, età,tipo):
