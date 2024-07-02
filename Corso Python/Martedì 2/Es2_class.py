@@ -65,9 +65,10 @@ class Fabbrica:
         for i in self.prodotti_in_fabbrica: 
             if i.nome == a: # se il nome corrisponde al nome di un oggetto prodotto nella lista
                 p = True
-                print(i.calcola_profitto()) # si stampa il profitto
+                print("Il profitto è:",i.calcola_profitto()) # si stampa il profitto
                 if self.num_prodotti[i] != 0:
                     self.num_prodotti[i] -=1
+                    print("Prodotto venduto con successo!")
                     for j in self.tipologia_prodotti: 
                         if i == j.prodotto: # se l'oggetto prodotto corrisponde all'oggetto prodotto della tipologia 
                             if type(j) == Abbigliamento: # se è tipo abbigliamento
@@ -87,6 +88,7 @@ class Fabbrica:
             if nome == i.nome: # se il nome esiste nei prodotti della fabbrica
                 p = True
                 self.num_prodotti[i] += 1 # si incrementa il suo numero
+                print("Prodotto restituito con successo!")
         if not p:
             print("Prodotto insesistente in fabbrica") # se non si trova il prodotto
             
