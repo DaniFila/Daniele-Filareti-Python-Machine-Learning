@@ -44,7 +44,7 @@ class Cibo:
         self.prezzo = prezzo
 
     def __str__(self):  # funzione della classe per andare a fare la stampa dell'oggetto str
-        return f"{self.nome} prezzo: {self.prezzo}"
+        return f"{self.nome} {self.prezzo} €"
 
 
 
@@ -78,3 +78,4 @@ ordine = Ordinazione(rist1)
 ordine.ordina()
 ordine.ordina()
 ordine.stampa_carello()
+
