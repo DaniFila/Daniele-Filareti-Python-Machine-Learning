@@ -48,9 +48,3 @@ class Pinguino(Animale):
     
 
 
-
-
-lion = Giraffa("leone",55,25)
-
-lion.altezza()
-        
