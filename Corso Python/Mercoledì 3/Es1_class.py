@@ -79,14 +79,13 @@ class CuocoLinea(PersonaleCucina): # classe figlia
                 else:
                     self.storico[piatto] = 1
             else:
-                print("Piatto non disponibile su ordinazioni")
+                print("Piatto non disponibile attualmente su ordinazioni")
         else:
-            print("Piatto inesistente")
+            print("Piatto inesistente dalle ordinazioni")
     def info_lavoro(self): # metodo che stampa info generale del personale + ruolo specifico
         super().lavora()
         print(f"Il suo ruolo è: Cuoco di linea")
     
-
 
 
 
