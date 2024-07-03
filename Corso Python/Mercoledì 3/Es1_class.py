@@ -1,10 +1,12 @@
 class PersonaleCucina: # classe padre
     inventario = {}
+    ordinazioni = {}
+    storico = {}
     def __init__(self,nome,età): 
         self.nome = nome
         self.età = età
     def lavora(self): # metodo che stampa una descriione che sta lavorando 
-        print(f"{self.nome} del personale cucina di età: {self.età}, sta lavorando")
+        print(f"{self.nome} del personale cucina di età: {self.età}")
     def aggiungi_inventario(self): # metodo per aggiungere piatto a inventario
         nome = input("Inserire piatto da aggiungere: ")
         quantità = int(input("Indicare quantità piatto: "))
@@ -16,9 +18,10 @@ class PersonaleCucina: # classe padre
                 self.inventario[nome] -=1
                 print("Quantità piatto ridotta")
             else:
-                print("Piatto non disponibile")
+                print("Piatto non disponibile in inventario")
         else:
-            print("Piatto assente")
+            print("Piatto inesistente")
+
     
 
 class Chef(PersonaleCucina): # classe figlia
@@ -27,9 +30,21 @@ class Chef(PersonaleCucina): # classe figlia
         self.specialità = specialità
     def prepara_menu(self): # metodo che stampa un messaggio
         print(f"Lo Chef {self.nome} sta preparando il menù della giornata odierna!")
-    def info_lavoro(self): # metodo delle info chef con richiamo metodo classe padre
+    def info_lavoro(self): # metodo che stampa info generale del personale + ruolo specifico
         super().lavora()
         print(f"Il suo ruolo è: Chef, la sua personalità è: {self.specialità}")
+    def ordina(self): # metodo per ordinare un piatto se disponibile in inventario per cucinarlo
+        nome = input("Indicare piatto da ordinare: ")
+        if nome in self.inventario:
+            if self.inventario[nome] > 0:
+                if nome in self.ordinazioni:
+                    self.ordinazioni[nome] += 1
+                else:
+                    self.ordinazioni[nome] = 1
+            else:
+                print("Piatto non disponibile in inventario")
+        else:
+            print("Piatto inesistente")
 
 
 
@@ -47,20 +62,31 @@ class SousChef(PersonaleCucina): # classe figlia
                 break
             else:
                 print("Operazione non valida")
-    
+    def info_lavoro(self): # metodo che stampa info generale del personale + ruolo specifico
+        super().lavora()
+        print(f"Il suo ruolo è: Assistente Chef")
 
 class CuocoLinea(PersonaleCucina): # classe figlia
     def __init__(self, nome, età):
         PersonaleCucina.__init__(self,nome, età) # eredita attributi e metodi classe padre
-    def cucina_piatto(self,piatto): # metodo per cucinare piatto e ridurre dall'inventario la quantità se è disponibile
-        if piatto in self.inventario:
-            if self.inventario[piatto] > 0:
+    def cucina_piatto(self,piatto): # metodo per cucinare piatto dalle ordinazioni se disponibile da cucinare
+        if piatto in self.ordinazioni:
+            if self.ordinazioni[piatto] > 0:
                 print(f"Il cuoco di linea di nome {self.nome}, sta cucinando il piatto: {piatto}")
-                self.inventario[piatto] -= 1
+                self.ordinazioni[piatto] -= 1
+                if piatto in self.storico:  # per ogni piatto cucinato lo si aggiunge in uno storico
+                    self.storico[piatto] +=1
+                else:
+                    self.storico[piatto] = 1
             else:
-                print("Piatto non disponibile")
+                print("Piatto non disponibile su ordinazioni")
         else:
-            print("Piatto assente")
+            print("Piatto inesistente")
+    def info_lavoro(self): # metodo che stampa info generale del personale + ruolo specifico
+        super().lavora()
+        print(f"Il suo ruolo è: Cuoco di linea")
+    
+
 
 
 
