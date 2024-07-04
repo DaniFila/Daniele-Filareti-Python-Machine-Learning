@@ -30,6 +30,10 @@ class Veicolo:
         return self.__anno
     
 
+"""class Auto(Veicolo):
+    def __init__(self):
+        super().__init__()"""
+    
 
 
 class GestoreParcoVeicoli(Veicolo):
@@ -58,7 +62,26 @@ class GestoreParcoVeicoli(Veicolo):
     def lista_veicoli(self):
         for veicolo in self.__veicoli:
             print(f"Marca: {veicolo._Veicolo__get_marca()}, Modello: {veicolo._Veicolo__get_modello()}, Anno: {veicolo._Veicolo__get_anno()}")
-
+    
+    def gestore(self,veicolo):
+        while True:
+            selezione = input("Indicare operazioni:\n1:set marca\n2:set modello\n3: set anno\n4: get marca\n5: get modello\n6: get anno\n7: Exit\n")
+            if selezione == "1":
+                veicolo._Veicolo__set_marca(input("Indicare Marca: "))
+            elif selezione == "2":
+                veicolo._Veicolo__set_modello(input("Indicare Modello: "))
+            elif selezione == "3":
+                veicolo._Veicolo__set_anno(int(input("Indicare anno: ")))
+            elif selezione == "4":
+                print(veicolo._Veicolo__get_marca())
+            elif selezione == "5":
+                print(veicolo._Veicolo__get_modello())
+            elif selezione == "6":
+                print(veicolo._Veicolo__get_anno())
+            elif selezione == "7":
+                break
+            else:
+                print("Selezione non valida")
 
 
 
@@ -69,7 +92,8 @@ v = Veicolo()
 
 a = GestoreParcoVeicoli()
 
-a.aggiungi_veicolo(v)
+a.gestore(v)
+# a.aggiungi_veicolo(v)
 # a.aggiungi_veicolo(v1)
 # a.rimuovi_veicolo("Ferrari","Roma")
-a.lista_veicoli()
+# a.lista_veicoli()
