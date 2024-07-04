@@ -30,10 +30,43 @@ class Veicolo:
         return self.__anno
     
 
-"""class Auto(Veicolo):
+class Auto(Veicolo):
     def __init__(self):
-        super().__init__()"""
+        Veicolo.__init__(self)
+        self.__numero_porte = 0
+    def suona_clacson(self):
+        print("TU TUUUUUU")
+    def set_numero_porte(self,numero):
+        self.__numero_porte = numero
+    def get_numero_porte(self):
+        return self.__numero_porte
     
+class Furgone(Veicolo):
+    def __init__(self):
+        Veicolo.__init__(self)
+        self.__capacità_carico = 0
+    def carica(self):
+        self.__capacità_carico +=1
+    def scarica(self):
+        self.__capacità_carico -=1
+    def set_carico(self,numero):
+        self.__capacità_carico = numero
+    def get_carico(self):
+        return self.__capacità_carico
+    
+class Motocicletta(Veicolo):
+    def __init__(self):
+        Veicolo.__init__(self)
+        self.__tipologia = ""
+    def set_tipo(self,type):
+        self.__tipologia = type
+    def get_tipo(self):
+        return self.__tipologia
+    def esegui_wheelie(self):
+        if self.__tipologia == "sportivo":
+            print("Eseguito!")
+        else:
+            print("Non adatto")
 
 
 class GestoreParcoVeicoli(Veicolo):
