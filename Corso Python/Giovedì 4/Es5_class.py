@@ -1,18 +1,18 @@
-class PersonalTrainer:
+class PersonalTrainer: # classe personaltrainer 
     def __init__(self,nome,età):
         self.nome = nome
         self.età = età
         self.__stipendio = 0
-    def info(self):
+    def info(self): # metodo che stampa informazioni
         print(f"{self.nome}, età: {self.età}")
-    def __set(self,stip):
+    def __set(self,stip): # metodo privato per impostare stipendio personal trainer
         self.__stipendio = stip
-    def __get(self):
+    def __get(self): # metodo privato per avere stipendio personal
         return self.__stipendio
-    def scrivi_scheda(self,atleta):
-        scheda = {}
+    def scrivi_scheda(self,atleta): # metodo per scrivere scheda per un atleta che si passa nel metodo
+        scheda = {} # la scheda sarà un dizionario con chiave il gruppo muscolare e valore una lista con esercizi con ripetizioni e serie
         while True:
-            a = input("1: Petto\n2: Spalle\n3: Tricipiti\n4: Addominali\n5: Dorso\n6: Gambe\n7: Bicipiti\n8: Stop\n")
+            a = input("1: Petto\n2: Spalle\n3: Tricipiti\n4: Addominali\n5: Dorso\n6: Gambe\n7: Bicipiti\n8: Stop\n") # si indica quale gruppo muscolare
             if a == "1":
                 l = []
                 n = int(input("Inserire numero di esercizi: "))
@@ -67,55 +67,57 @@ class PersonalTrainer:
                 break
             else:
                 print("Error")
-        atleta.scheda = scheda
+        atleta.scheda = scheda # qui si imposta la scheda dell'atleta con quella appena creata
 
 
-class Atleta:
-    scheda = {}
+class Atleta: # classe atleta
+    scheda = {}  # scheda in dizionario
     def __init__(self,nome,età,sesso):
         self.nome = nome
         self.età = età
         self.sesso = sesso
         self.__pagamento = False
-    def __set_stato_pagamento(self):
+    def __set_stato_pagamento(self): # metodo privato per impostare se lo stato di pagamento è true quindi ha pagato oppure no
         if self.__pagamento:
             self.__pagamento = False
             print("il Cliente non ha pagato!")
         else:
             self.__pagamento = True
             print("Il Cliente ha pagato!")
-    def __get_stato_pagamento(self):
+    def __get_stato_pagamento(self): # metodo privato che stampa lo stato del pagamento
         if self.__pagamento:
             print("Il Cliente risulta in regola con i pagamenti!")
         else:
             print("Il Cliente non risulta in regola con i pagamenti!")
-    def visualizza_scheda(self):
+    def visualizza_scheda(self): # metodo per visualizzare scheda
         if self.scheda == {}:
             print("Non hai una scheda")
         else:
             for gruppo,esercizio in self.scheda.items():
                 print(f"Gruppo muscolare: {gruppo} esercizi: {esercizio}")
-    def info(self):
+    def info(self): # metodo per visualizzare info
         print(f"{self.nome}, età: {self.età}, sesso: {self.sesso}")
 
 
-class Datore(Atleta,PersonalTrainer):
+class Datore(Atleta,PersonalTrainer): # classe del datore di lavoro 
     def __init__(self, nome, età, sesso):
         super().__init__(nome, età, sesso)
-    def set_stipendio_personal(self,personal_trainer):
+    def set_stipendio_personal(self,personal_trainer): # metodo per impostare stipendio personal trainer passato nel metodo
         personal_trainer._PersonalTrainer__set(int(input("Indicare stipendio: ")))
-    def get_stipendio_persona_trainer(self,personal_trainer):
+    def get_stipendio_persona_trainer(self,personal_trainer): # metodo per visualizzare lo stipendio del personal tranier passato nel metodo
         print(personal_trainer._PersonalTrainer__get())
-    def set_stato_pagamento_atleta(self,atleta):
+    def set_stato_pagamento_atleta(self,atleta): # metodo per impostare lo stato di pagamento dell'atleta passato nel metodo
         atleta._Atleta__set_stato_pagamento()
-    def get_stato_pagamento_atleta(self,atleta):
+    def get_stato_pagamento_atleta(self,atleta): # metodo per visualizzare lo stato del pagamento dell'atleta passato nel metodo
         atleta._Atleta__get_stato_pagamento()
-    def info(self):
-        super().info()
+    def info(self): # metodo per visualizzare info
+        super().info() 
         print("Ruolo: Datore")
 
-class MenuPalestra:
-    def menu(self):
+
+# questa classe è dimostrativa per testare le classi Atleta,PersonalTrainer e Datore, il test è effettuato attraverso 3 oggetti creati nel codice
+class MenuPalestra: # classe per avere un menù
+    def menu(self): # metodo dove si selezione il tipo di ruolo e in base al tipo si effettuano varie operazioni
         while True:
             a = input("Indicare tipologia ruolo:\n1: Cliente\n2: Personal Trainer\n3: Datore\n4: Exit\n")
             if a == "1":
@@ -160,13 +162,15 @@ class MenuPalestra:
                 break
             else:
                 print("Error")
-    
+
+
+ # creazione oggetti per test   
 boss = Datore("antonio",21,"maschio")
 personal = PersonalTrainer("Samuele",25)
 cliente = Atleta("Ronnie Coleman",50,"maschio")
 
 menu = MenuPalestra()
-menu.menu()
+menu.menu() # richiamo del test
 
 
 
