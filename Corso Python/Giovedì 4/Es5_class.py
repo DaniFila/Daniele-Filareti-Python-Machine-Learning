@@ -90,8 +90,11 @@ class Atleta:
         else:
             print("Il Cliente non risulta in regola con i pagamenti!")
     def visualizza_scheda(self):
-        for gruppo,esercizio in self.scheda.items():
-            print(f"Gruppo muscolare: {gruppo} esercizi: {esercizio}")
+        if self.scheda == {}:
+            print("La tua scheda è vuota")
+        else:
+            for gruppo,esercizio in self.scheda.items():
+                print(f"Gruppo muscolare: {gruppo} esercizi: {esercizio}")
     def info(self):
         print(f"{self.nome}, età: {self.età}, sesso: {self.sesso}")
 
@@ -110,6 +113,7 @@ class Datore(Atleta,PersonalTrainer):
     def info(self):
         super().info()
         print("Ruolo: Datore")
+
 
 boss = Datore("antonio",21,"maschio")
 cliente = Atleta("Ronnie Coleman",50,"maschio")
