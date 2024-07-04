@@ -91,7 +91,7 @@ class Atleta:
             print("Il Cliente non risulta in regola con i pagamenti!")
     def visualizza_scheda(self):
         if self.scheda == {}:
-            print("La tua scheda è vuota")
+            print("Non hai una scheda")
         else:
             for gruppo,esercizio in self.scheda.items():
                 print(f"Gruppo muscolare: {gruppo} esercizi: {esercizio}")
@@ -114,14 +114,60 @@ class Datore(Atleta,PersonalTrainer):
         super().info()
         print("Ruolo: Datore")
 
-
+class MenuPalestra:
+    def menu(self):
+        while True:
+            a = input("Indicare tipologia ruolo:\n1: Cliente\n2: Personal Trainer\n3: Datore\n4: Exit\n")
+            if a == "1":
+                while True:
+                    b = input("Indicare azione:\n1: Visualizza scheda\n2: Visualizza le tue info\n3: Exit\n")
+                    if b == "1":
+                        cliente.visualizza_scheda()
+                    elif b == "2":
+                        cliente.info()
+                    elif b == "3":
+                        break
+                    else:
+                        print("Error")
+            elif a == "2":
+                while True:
+                    b = input("Indicare azione:\n1: scrivi scheda\n2: Visualizza le tue info\n3: Exit\n")
+                    if b == "1":
+                        personal.scrivi_scheda(cliente)
+                    elif b == "2":
+                        personal.info()
+                    elif b == "3":
+                        break
+                    else:
+                        print("Error")
+            elif a == "3":
+                while True:
+                    b = input("Indicare azione:\n1: imposta stipendio personal trainer\n2: Visualizza stipendio personal trainer\n3:Cambia stato pagamento cliente\n4: visualizza stato pagamento cliente\n5: Exit\n")
+                    if b == "1":
+                        boss.set_stipendio_personal(personal)
+                    elif b == "2":
+                        boss.get_stipendio_persona_trainer(personal)
+                    elif b == "3":
+                        boss.set_stato_pagamento_atleta(cliente)
+                    elif b == "4":
+                        boss.get_stato_pagamento_atleta(cliente)
+                    elif b == "5":
+                        break
+                    else:
+                        print("Error")
+            elif a == "4":
+                print("Arrivederci")
+                break
+            else:
+                print("Error")
+    
 boss = Datore("antonio",21,"maschio")
-cliente = Atleta("Ronnie Coleman",50,"maschio")
 personal = PersonalTrainer("Samuele",25)
+cliente = Atleta("Ronnie Coleman",50,"maschio")
 
+menu = MenuPalestra()
+menu.menu()
 
-personal.scrivi_scheda(cliente)
-cliente.visualizza_scheda()
 
 
 
