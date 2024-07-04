@@ -44,32 +44,39 @@ class PostoVIP(Posto):
 
 
 
-class Teatro:
+class Teatro: 
     def __init__(self):
-        self._posti = []
-    def set_posti(self):
+        self._posti = {} # dizionario con posti teatro
+    def set_posti(self): # metodo per settare i posti nel teatro
         while True:
-            fila = input("Indicare il nome della fila: ")
-            self._posti.append(fila)
-            n_posti_fila = int(input("Indicare numero posti della fila: "))
+            fila = input("Indicare il nome della fila: ") # si richiede il nome della fila
+            self._posti[fila] = [] # si crea come valore della fila una lista
+            n_posti_fila = int(input("Indicare numero posti della fila: ")) # si indica il numero dei posti
             for posto in range(n_posti_fila):
-                z = input("Il seguente posto è un posto vip:(si per accettare) ")
-                if z == "si":
-                    self._posti[self._posti.index(fila)].append(PostoVIP(posto,fila))
+                z = input("Il seguente posto è un posto vip:(si per accettare) ") # si richiede per ogni posto se è vip
+                if z == "si": 
+                    self._posti[fila].append(PostoVIP(posto,fila))
                 else:
-                    self._posti[self._posti.index(fila)].append(Posto(posto,fila))
-            f = input("Vuoi aggiungere un'altra fila? (si per accettare): ")
+                    self._posti[fila].append(Posto(posto,fila))
+            f = input("Vuoi aggiungere un'altra fila? (si per accettare): ") # si richiede se si vogliono aggiungere altre file
             if f != "si":
                 break
-    def prenota_posto(self,numero,fila):
+    def prenota_posto(self,numero,fila): # metodo per prenotare posto
         if fila in self._posti:
-            self._posti[self._posti.index(fila)][numero].prenota()
+            self._posti[fila][numero].prenota()
         else:
             print("Fila inesistente!")
 
-    def stampa_posti_occupati(self):
+    def stampa_posti_occupati(self): # metodo per stampare posto
         for fila in self._posti:
-            for posto in fila:
-                if posto.stato:
-                    print(f"Fila: {posto.get_fila},Posto: {posto.get_numero}")
+            for posto in self._posti[fila]:
+                if posto.stato():
+                    print(fila,posto.get_numero())
     
+
+
+theater = Teatro()
+
+theater.set_posti()
+theater.prenota_posto(2,"uno")
+theater.stampa_posti_occupati()
