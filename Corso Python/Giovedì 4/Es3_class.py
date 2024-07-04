@@ -16,17 +16,17 @@ class Veicolo:
             print("Motore spento!")
         else:
             print("Motore già non in moto")
-    def set_marca(self,marca):
+    def __set_marca(self,marca):
         self.__marca = marca
-    def set_modello(self,modello):
+    def __set_modello(self,modello):
         self.__modello = modello
-    def set_anno(self,anno):
+    def __set_anno(self,anno):
         self.__anno = anno
-    def get_marca(self):
+    def __get_marca(self):
         return self.__marca
-    def get_modello(self):
+    def __get_modello(self):
         return self.__modello
-    def get_anno(self):
+    def __get_anno(self):
         return self.__anno
     
 
@@ -38,13 +38,16 @@ class GestoreParcoVeicoli(Veicolo):
         self.__veicoli = []
     
     def aggiungi_veicolo(self,veicolo):
+        veicolo._Veicolo__set_marca(input("Indicare Marca: "))
+        veicolo._Veicolo__set_modello(input("Indicare Modello: "))
+        veicolo._Veicolo__set_anno(int(input("Indicare anno: ")))
         self.__veicoli.append(veicolo)
 
     def rimuovi_veicolo(self,marca,modello):
         found = False
         for veicolo in self.__veicoli:
-            marcas = veicolo.get_marca()
-            modellos = veicolo.get_modello()
+            marcas = veicolo._Veicolo__get_marca()
+            modellos = veicolo._Veicolo__get_modello()
             if marca == marcas and modello == modellos:
                 self.__veicoli.remove(veicolo)
                 print("Veicolo rimosso con successo!")
@@ -54,23 +57,19 @@ class GestoreParcoVeicoli(Veicolo):
     
     def lista_veicoli(self):
         for veicolo in self.__veicoli:
-            print(f"Marca: {veicolo.get_marca()}, Modello: {veicolo.get_modello()}, Anno: {veicolo.get_anno()}")
+            print(f"Marca: {veicolo._Veicolo__get_marca()}, Modello: {veicolo._Veicolo__get_modello()}, Anno: {veicolo._Veicolo__get_anno()}")
 
 
 
 
 v = Veicolo()
-v.set_marca("Ferrari")
-v.set_modello("Roma")
-v.set_anno(2024)
 
-v1 = Veicolo()
-v1.set_marca("Ferrari1")
-v1.set_modello("Roma1")
-v1.set_anno(2020)
+
+# v1 = Veicolo()
+
 a = GestoreParcoVeicoli()
 
 a.aggiungi_veicolo(v)
-a.aggiungi_veicolo(v1)
-a.rimuovi_veicolo("Ferrari","Roma")
+# a.aggiungi_veicolo(v1)
+# a.rimuovi_veicolo("Ferrari","Roma")
 a.lista_veicoli()
