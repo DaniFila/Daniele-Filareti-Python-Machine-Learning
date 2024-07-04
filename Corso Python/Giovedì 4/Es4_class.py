@@ -23,7 +23,11 @@ class BonificoBancario(MetodoPagamento):
 
 class GestorePagamenti:
     def paga(tipo_pagamento,importo):
-        tipo_pagamento.effettua_pagamento(importo)
+        try:
+            tipo_pagamento.effettua_pagamento(importo)
+            print("Successo!")
+        except:
+            print("Tipo di pagamento non valido!")
 
 
 p = CartaDiCredito()
