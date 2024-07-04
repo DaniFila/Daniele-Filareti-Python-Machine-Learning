@@ -84,23 +84,29 @@ class GestoreParcoVeicoli(Veicolo): # classe di gestione che eredita attributi e
 
     def rimuovi_veicolo(self,marca,modello): # metodo per rimuovere veicolo ricercando tramite marca e modello
         found = False # booleano per tracciare se è stato trovato
-        for veicolo in self.__veicoli: # si scannerizza la lista dei veicoli
-            marcas = veicolo._Veicolo__get_marca() # si ricava dall'attributo privato della classe Veicolo la marca
-            modellos = veicolo._Veicolo__get_modello() # si ricava dall'attributo privato della classe Veicolo il modello
-            if marca == marcas and modello == modellos: # se marca e modello corrispondono con il veicolo scannerizzato 
-                self.__veicoli.remove(veicolo) # si rimuove il veicolo dalla lista
-                print("Veicolo rimosso con successo!") # stampa un messaggio di avvenuta rimozione
-                found = True # si imposta il booleano su True 
-        if not found: # se non è stata trovata corrispondenza
-            print("Veicolo non presente") # stampa avviso
+        if self.__veicoli == []: # verifica che la lista non sia vuota, eventualmente stampa un messaggio
+            print("Non ci sono veicoli nel Parco!")
+        else:
+            for veicolo in self.__veicoli: # si scannerizza la lista dei veicoli
+                marcas = veicolo._Veicolo__get_marca() # si ricava dall'attributo privato della classe Veicolo la marca
+                modellos = veicolo._Veicolo__get_modello() # si ricava dall'attributo privato della classe Veicolo il modello
+                if marca == marcas and modello == modellos: # se marca e modello corrispondono con il veicolo scannerizzato 
+                    self.__veicoli.remove(veicolo) # si rimuove il veicolo dalla lista
+                    print("Veicolo rimosso con successo!") # stampa un messaggio di avvenuta rimozione
+                    found = True # si imposta il booleano su True 
+            if not found: # se non è stata trovata corrispondenza
+                print("Veicolo non presente") # stampa avviso
     
     def lista_veicoli(self): # metodo per stampare veicoli in lista formattati con marca,modello e anno
-        for veicolo in self.__veicoli:
-            print(f"Marca: {veicolo._Veicolo__get_marca()}, Modello: {veicolo._Veicolo__get_modello()}, Anno: {veicolo._Veicolo__get_anno()}")
+        if self.__veicoli == []: # verifica che la lista non sia vuota, eventualmente stampa un messaggio
+            print("Non ci sono veicoli nel Parco!")
+        else:
+            for veicolo in self.__veicoli:
+                print(f"Marca: {veicolo._Veicolo__get_marca()}, Modello: {veicolo._Veicolo__get_modello()}, Anno: {veicolo._Veicolo__get_anno()}")
     
     def gestore(self,veicolo): # metodo per gestire un veicolo passato insieme al metodo
         while True:
-            selezione = input("Indicare operazioni:\n1:set marca\n2:set modello\n3: set anno\n4: get marca\n5: get modello\n6: get anno\n7: Exit\n")
+            selezione = input("Indicare operazioni:\n1: set marca\n2: set modello\n3: set anno\n4: get marca\n5: get modello\n6: get anno\n7: Exit\n")
             if selezione == "1": # se si indica 1 allora si richiama il metodo privato della classe Veicolo e si richiede di impostare la marca
                 veicolo._Veicolo__set_marca(input("Indicare Marca: "))
             elif selezione == "2": # se si indica 2 allora si richiama il metodo privato della classe Veicolo e si richiede di impostare il modello
