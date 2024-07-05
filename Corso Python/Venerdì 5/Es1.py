@@ -94,13 +94,13 @@ class ContoBancario:
         if importo>0:
             self.__saldo=self.__saldo+importo
         else:
-            return f"Importo insufficiente"
+            print("Importo errato")
         
     def preleva(self,importo):
         if self.__saldo>=importo and importo>0:
             self.__saldo=self.__saldo-importo
         else:
-            return f"Saldo insufficiente"
+            print("Saldo Insufficiente")
         
     def visualizza_saldo(self):
         print(f"Saldo disponibile: {self.__saldo}")
