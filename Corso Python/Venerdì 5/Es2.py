@@ -38,12 +38,12 @@ class Pikachù(Pokemon):
                 print("Azione")
                 return attacco
             elif a == "2":
-                attacco = 15
+                attacco = self.mosse["Attacco Rapido"]
                 print("Attacco rapido")
                 return attacco
             elif a == "3":
-                attacco = 25
-                print("Fulmine")
+                attacco = self.mosse["Fulmine"]
+                print("Lancia fiamme")
                 return attacco
             else:
                 print("Errore")
@@ -73,16 +73,16 @@ class Squirtle(Pokemon):
         while True:
             a = input("Seleziona:\n1: Azione\n2: Attacco Rapido\n3: Pistol acqua\n")
             if a == "1":
-                attacco = 20
+                attacco = self.mosse["Azione"]
                 print("Azione")
                 return attacco
             elif a == "2":
-                attacco = 15
+                attacco = self.mosse["Attacco Rapido"]
                 print("Attacco rapido")
                 return attacco
             elif a == "3":
-                attacco = 25
-                print("Pistol acqua")
+                attacco = self.mosse["Pistol acqua"]
+                print("Lancia fiamme")
                 return attacco
             else:
                 print("Errore")
@@ -112,16 +112,16 @@ class Bulbasaur(Pokemon):
         while True:
             a = input("Seleziona:\n1: Azione\n2: Attacco Rapido\n3: Fendi foglia\n")
             if a == "1":
-                attacco = 20
+                attacco = self.mosse["Azione"]
                 print("Azione")
                 return attacco
             elif a == "2":
-                attacco = 15
+                attacco = self.mosse["Attacco Rapido"]
                 print("Attacco rapido")
                 return attacco
             elif a == "3":
-                attacco = 25
-                print("Fendi foglia")
+                attacco = self.mosse["Fendi foglia"]
+                print("Lancia fiamme")
                 return attacco
             else:
                 print("Errore")
@@ -136,24 +136,24 @@ class Charmander(Pokemon):
 
     def __init__(self):
         Pokemon.__init__(self)
-        self.iv = randint(1,32)
-        self.hp = self.hp + self.iv
-        self.mosse = {"Azione":20,"Attacco Rapido":15,"Lancia fiamme":25}
+        iv = randint(1,32)
+        self.hp = self.hp + iv
+        self.mosse = {"Azione":20,"Attacco Rapido":15,"Lancia Fiamme":25}
 
     def attacca(self):
         attacco = 0
         while True:
-            a = input("Seleziona:\n1: Azione\n2: Attacco Rapido\n3: Lancia fiamme\n")
+            a = input("Seleziona:\n1: Azione\n2: Attacco Rapido\n3: Lancia Fiamme\n")
             if a == "1":
-                attacco = 20
+                attacco = self.mosse["Azione"]
                 print("Azione")
                 return attacco
             elif a == "2":
-                attacco = 15
+                attacco = self.mosse["Attacco Rapido"]
                 print("Attacco rapido")
                 return attacco
             elif a == "3":
-                attacco = 25
+                attacco = self.mosse["Lancia Fiamme"]
                 print("Lancia fiamme")
                 return attacco
             else:
@@ -209,38 +209,41 @@ while True:
     tipi_pok()
     print("Scegli il tuo Pokemon iniziale: ")
     scelta=input("Seleziona una scelta: ")
-    if scelta=="1":     
-        if scelta=="1":         #Pikachu
-            ogg_pik=Pikachù()
-            ogg_pik.set_nome()
-            pok1.aggiungi_pok(ogg_pik)
-            break
-        elif scelta=="2":       #Charmender
-            ogg_pik=Charmander()
-            ogg_pik.set_nome()
-            pok1.aggiungi_pok(ogg_pik)        #creazione Charmender
-            break
-        elif scelta=="3":       #Squirtle
-            ogg_pik=Squirtle()
-            ogg_pik.set_nome()
-            pok1.aggiungi_pok(ogg_pik)        #creazione Squirtle
-            break
-        elif scelta=="4":       #Bulbasaur
-            ogg_pik=Bulbasaur()
-            ogg_pik.set_nome()
-            pok1.aggiungi_pok(ogg_pik)        #creazione Bulbasaur
-        else:
-            print("Scelta sbagliata.")
+    if scelta=="1":         #Pikachu
+        ogg_pik=Pikachù()
+        ogg_pik.set_nome()
+        print("")
+        pok1.aggiungi_pok(ogg_pik)
+        break
+    elif scelta=="2":       #Charmender
+        ogg_pik=Charmander()
+        ogg_pik.set_nome()
+        print("")
+        pok1.aggiungi_pok(ogg_pik)        #creazione Charmender
+        break
+    elif scelta=="3":       #Squirtle
+        ogg_pik=Squirtle()
+        ogg_pik.set_nome()
+        print("")
+        pok1.aggiungi_pok(ogg_pik)        #creazione Squirtle
+        break
+    elif scelta=="4":       #Bulbasaur
+        ogg_pik=Bulbasaur()
+        ogg_pik.set_nome()
+        print("")
+        pok1.aggiungi_pok(ogg_pik)        #creazione Bulbasaur
+    else:
+        print("Scelta sbagliata.")
 
-print(pok1.lista_ogg)
-print(pok1.diz_cont)
 
-print("IL GIOCO CONTINUA")
 
+print("\nIL GIOCO CONTINUA")
+print("")
 
 
 def ricerca_cattura():
     print("E' stato avvistato un Pokemon:")
+    print("")
     scelta=randint(1,4)
     if scelta==1:     #genera Pikachu
         pokemon=Pikachù()
@@ -252,18 +255,25 @@ def ricerca_cattura():
         pokemon=Bulbasaur()
     
     pokemon.info()
-
+    print("")
     scelta=input("Vuoi attaccarlo? ").lower()
+    print("")
     if scelta=="si":        #DEVE SCEGLIERE IL POKEMON
         hp_mio_pok=ogg_pik.hp
         hp_nemico=pokemon.hp
         while hp_mio_pok>0 and hp_nemico>0:
             ns_att=ogg_pik.attacca()
+            print("")
             hp_nemico-=ns_att
+            print(f"HP Nemico:{hp_nemico} ")
             nem_att=pokemon.attacca_casuale()
+            print("")
             hp_mio_pok-=nem_att
+            print(f"HP tuo Pokemon: {hp_mio_pok}")
+            print("")
         if hp_nemico <=0:
             scelta=input("HAI VINTO! Vuoi aggiungere il pokemon nel pokedex? ").lower()
+            print("")
             if scelta=="si":
                 pokemon.set_nome()
                 pok1.aggiungi_pok(pokemon)
