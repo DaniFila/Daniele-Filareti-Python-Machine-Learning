@@ -32,7 +32,7 @@ figlio.info() # richiamo metodo info della classe Padre
 
 
 
-# PROPRIETARIETA'
+# INCAPSULAMENTO
 
 class Login: # creo classe login
     def __init__(self,username): # nel costruttore avrò attributo username pubblico e attributo password privato, si passa solo l'username al momento della creazione
@@ -57,7 +57,7 @@ user.set_password("ciao123") # per impostare la password richiamo metodo set
 # per visualizzarla si può fare così:
 print(user._Login__get_password()) # è ovviamente sconsigliato questo utilizzo fuori dai contesti delle classi
 
-# La proprietarietà ci permette di nascondere e rendere privati attributi e metodi delle classi, esistono anche metodi e attributi protetti che sono contrassegnati con un _ davanti il nome, mentre quello privato con il doppio __
+# l'incapsulamento ci permette di nascondere e rendere privati attributi e metodi delle classi, esistono anche metodi e attributi protetti che sono contrassegnati con un _ davanti il nome, mentre quello privato con il doppio __
 # i metodi e attributi protetti sono da indicazione per i programmatori senza avere un cambiamento funzionale rispetto quelli pubblici
 #---------------------------------------------------------------------------------------------------------------------------------------
 
