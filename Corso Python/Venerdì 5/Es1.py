@@ -118,6 +118,42 @@ class ContoBancario:
             return "Saldo insufficiente o importo non valido"
               
 
+class Prodotto():
+
+    def init(self,nome,prezzo,quantita):
+          self.nome=nome
+          self.prezzo=prezzo
+          self.quantita=quantita
+
+    def _set_nome(self,nome):
+         self.nome=nome
+
+    def _set_prezzo(self,prezzo):
+         self.prezzo=prezzo
+
+    def _set_quantita(self,quantita):
+         self.quantita=quantita
+
+    def get_nome(self):
+         return self.nome
+
+    def get_prezzo(self):
+         return self.prezzo
+
+    def get_quantita(self):
+         return self.quantita
+
+class Negozio(Prodotto):
+
+    inventario={}
+
+    def inserisci_prodotto(self,prodotto,quantita):
+        nomeprodotto = self.get_nome(prodotto)
+
+        self.inventario[nomeprodotto]=quantita
+
+    def mostra_inventario(self):
+        return self.inventario.items()
 
 cliente=ContoBancario()
 cliente2 = ContoBancario()
