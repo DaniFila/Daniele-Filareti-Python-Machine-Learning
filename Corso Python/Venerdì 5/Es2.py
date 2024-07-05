@@ -139,7 +139,7 @@ class Pokedex:
         self.lista_ogg=[]
         self.diz_cont={}
         self.diz_cont["Acqua"]=0
-        self.diz_cont["Terra"]=0
+        self.diz_cont["Erba"]=0
         self.diz_cont["Elettro"]=0
         self.diz_cont["Fuoco"]=0
 
@@ -205,6 +205,7 @@ while True:
         print("Scelta sbagliata")
 
 
-
+print(pok1.lista_ogg)
+print(pok1.diz_cont)
 
 
