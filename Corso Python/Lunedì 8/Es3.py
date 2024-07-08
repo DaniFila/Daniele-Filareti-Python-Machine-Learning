@@ -27,11 +27,11 @@ somma = np.sum(arr3)
 #--------------------------------------------------------------------------------------------
 # Esercizio 3
 
-def crea_array_equi():
+def crea_array_equi(): # creo una funzione che genera un array con 20 numeri equidistanti da 0 a 10
     arr = np.linspace(0,10,20)
     return arr
 
-def matr_random():
+def matr_random(): # creo una funzione che genera una matrice di dimensione 5x5 con numeri casuali da 1 a 100
     arr = np.random.randint(1,101, size=(5,5))
     return arr
 
