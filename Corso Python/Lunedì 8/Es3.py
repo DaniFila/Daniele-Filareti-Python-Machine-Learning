@@ -62,3 +62,15 @@ matr_arr1d[:,0] = 0 # trasformo la prima colonna in 0, posso usare 2 metodi
 
 #---------------------------------------------------------------------------------------------------------------------------------
 
+# Esercizio 6
+
+matrice_casuale = np.random.randint(50, 101, size=(3, 3)) # matrice con numeri casuali 3x3
+
+valore_massimo = np.max(matrice_casuale) # mi salvo in una variabile il valore massimo della matrice attraverso la funzione max
+valore_minimo = np.min(matrice_casuale) # mi salvo in un'altra variabile il valore minimo della matrice attraverso la funzione min
+
+
+array1 = np.random.rand(5) # genero 2 array con numeri casuali di dimensione 5
+array2 = np.random.rand(5)
+
+prodotto_scalare = np.dot(array1, array2) # faccio il prodotto scalare attraverso la funzione dot dei 2 array generati casualmente
