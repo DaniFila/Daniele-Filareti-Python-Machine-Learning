@@ -28,10 +28,7 @@ somma = np.sum(arr3)
 # Esercizio 3
 
 def crea_array_equi():
-    n = int(input("Indicare numero di elementi: "))
-    inizio = int(input("Indicare estremo sinistro: "))
-    fine = int(input("indicare estremo destro: "))
-    arr = np.linspace(inizio,fine,n)
+    arr = np.linspace(0,10,20)
     return arr
 
 def matr_random():
@@ -39,11 +36,29 @@ def matr_random():
     return arr
 
 
-#----------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------------------
 
 # Esercizio 4
 
+arr_0 = np.random.rand(5,5) # matrice 5x5 con numeri casuali
 
 
+media = np.mean(arr_0,axis=0) # si calcola la media con la funzione mean indicando axis = 0 per indicare la media delle colonne
 
+somma = np.sum(arr_0,axis=1) #  si calcola la somma di ciascuna riga della matrice con la funzione sum con axis = 1 per indicare le righe
+
+#---------------------------------------------------------------------------------------------------------------------------------
+
+# Esercizio 5
+
+arr1d = np.array([1,2,3,4,5,6,7,8,9,10,11,12]) # creo un array con 12 elementi
+
+matr_arr1d = arr1d.reshape(3,4) # lo trasformo in una matrice 3x4
+
+matr_arr1d[:,0] = 0 # trasformo la prima colonna in 0, posso usare 2 metodi
+#for i in range(3):
+   # matr_arr1d[i][0] = 0
+
+
+#---------------------------------------------------------------------------------------------------------------------------------
 
