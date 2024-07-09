@@ -14,8 +14,8 @@ def xml_to_string():
     </saluti>'''
 
     root = ET.fromstring(xml_data)
-
-    return root
+    tree = ET.ElementTree(root)
+    return tree,root
 
 
 tree,root = xml_to_file()
