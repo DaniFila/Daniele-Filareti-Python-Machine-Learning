@@ -6,7 +6,8 @@ def xml_to_file():
 
     return tree,root
 
-def scrivi(tree):
+def scrivi(root):
+    tree = ET.ElementTree(root)
     tree.write("Corso Python/Martedì 9/file_es5.xml")
 
 def verifica():
@@ -54,8 +55,8 @@ def aggiungi():
             corsi.append(corso_nuovo)
         studente.append(corsi)
         root1.append(studente)
-        tree = ET.ElementTree(root1)
-        return tree
+        scrivi(root1)
+        print("Studente aggiunto con successo!")
     else:
         id_nuovo = id_nuovo_studente()
         studente = ET.Element("studente",id=str(id_nuovo))
@@ -76,16 +77,38 @@ def aggiungi():
             corsi.append(corso_nuovo)
         studente.append(corsi)
         root.append(studente)
-        tree = ET.ElementTree(root)
-        return tree
+        scrivi(root1)
+        print("Studente aggiunto con successo!")
 
 def rimuovi():
+    trovato = False
     if vuoto:
         print("Il file è vuoto!")
     else:
-        stud = input("")
+        studente_S = input("Indicare nome studente da eliminare: ")
+        for studente in root.findall("studente"):
+            nome = studente.find("nome").text
+            if nome == studente_S:
+                root.remove(studente)
+                trovato = True 
+        if not trovato:
+            print("Studente non trovato.")
+        else:
+            print("Studente eliminato con successo!")
+            scrivi(root)
+    pulisci()
+        
+def pulisci():
+    clear = ""
+    count = 0
+    for studente in root.findall("studente"):
+        count+=1
+    if count == 0:
+        scrivi(clear)
+
 
 tree,root,vuoto = verifica()
+rimuovi()
 
 
         
