@@ -96,7 +96,7 @@ def rimuovi():
         else:
             print("Studente eliminato con successo!")
             scrivi(root)
-    pulisci()
+    # pulisci()
         
 def pulisci():
     clear = ""
