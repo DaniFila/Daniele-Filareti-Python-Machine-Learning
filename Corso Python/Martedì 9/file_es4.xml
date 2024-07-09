@@ -1,0 +1,14 @@
+<prodotti>
+<prodotto>
+<nome>Laptop</nome>
+<prezzo>800</prezzo>
+</prodotto>
+<prodotto>
+<nome>Smartphone</nome>
+<prezzo>500</prezzo>
+</prodotto>
+<prodotto>
+<nome>Tablet</nome>
+<prezzo>300</prezzo>
+</prodotto>
+</prodotti>
