@@ -1,3 +1,10 @@
-<saluti>
-    <saluto>Hello World</saluto>
-    <nuovo_tag>testo del nuovo elemento</nuovo_tag></saluti>
+<studenti>
+<studente>
+<nome>Alice</nome>
+<eta>22</eta>
+</studente>
+<studente>
+<nome>Bob</nome>
+<eta>25</eta>
+</studente>
+</studenti>
