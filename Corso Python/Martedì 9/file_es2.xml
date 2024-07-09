@@ -1,1 +1,1 @@
-<Studenti><nome>Alice</nome><eta>22</eta><nome>Bob</nome><eta>25</eta><nome>Charlie</nome><eta>20</eta></Studenti>
+<Studenti><studente><nome>Alice</nome><eta>22</eta></studente><studente><nome>Bob</nome><eta>25</eta></studente><studente><nome>Charlie</nome><eta>20</eta></studente></Studenti>
