@@ -8,17 +8,18 @@ studenti = [
 
 
 root = ET.Element("Studenti")
-
+count = 0
 for element in studenti:
-    elemento_studente = ET.Element("studente")
+    elemento_studente = ET.Element("studente",id=str(count))
     for chiave,valore in element.items():
         nuovo_elemento = ET.Element(chiave)
         nuovo_elemento.text= valore
         elemento_studente.append(nuovo_elemento)
     root.append(elemento_studente)
-
+    count+=1
 
 
 tree = ET.ElementTree(root)
 
 tree.write("Corso Python/Martedì 9/file_es2.xml")
+
