@@ -10,10 +10,12 @@ studenti = [
 root = ET.Element("Studenti")
 
 for element in studenti:
+    elemento_studente = ET.Element("studente")
     for chiave,valore in element.items():
         nuovo_elemento = ET.Element(chiave)
         nuovo_elemento.text= valore
-        root.append(nuovo_elemento)
+        elemento_studente.append(nuovo_elemento)
+    root.append(elemento_studente)
 
 
 
