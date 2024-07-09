@@ -108,7 +108,6 @@ def pulisci():
 
 
 tree,root,vuoto = verifica()
-rimuovi()
 
 
         
