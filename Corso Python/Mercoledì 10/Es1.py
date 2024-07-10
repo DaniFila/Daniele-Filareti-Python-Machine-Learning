@@ -3,8 +3,7 @@ import xml.etree.ElementTree as ET
 
 contenuto = requests.get("https://www.ansa.it/sito/ansait_rss.xml")
 
-xml_contenuto = contenuto.content
-
+xml_contenuto = contenuto.text
 root = ET.fromstring(xml_contenuto)
 
 prima_notizia = root.find("channel/item")
