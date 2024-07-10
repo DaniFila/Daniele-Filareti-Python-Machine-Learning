@@ -106,12 +106,28 @@ def pulisci():
     if count == 0:
         scrivi(clear)
 
+def modifica_studente():
+    if vuoto:
+        print("Nessun studente presente!")
+    else:
+        nome = input("Inserisci il nome dell'utente da Modificare: ")
+        trovato = False
+        for studente in root.findall("studente"):
+            if studente.find("nome").text == nome:
+                nuovo_nome = input("Inserisci il nuovo nome: ")
+                studente.find("nome").text = nuovo_nome
+                trovato = True
+        if trovato:
+            print("Alunno modificato")
+            scrivi(root)
+        else:
+            print("Studente non trovato!")
+
+
 
 tree,root,vuoto = verifica()
 
 
-        
-            
 
 
 
