@@ -13,7 +13,7 @@ def imposta_api(latitudine,longitudine):
     pioggia_b = False
     vento_b = False
     api = f"https://api.open-meteo.com/v1/forecast?latitude={latitudine}&longitude={longitudine}&hourly=temperature_2m"
-    dizionario = {"1":{"url":"&forecast_days=1"},"2":"&forecast_days=3","3":"","4":"&daily=wind_speed_10m_max","5":"&daily=precipitation_sum"}
+    dizionario = {"1":{"url":"&forecast_days=1","vento":True},"2":"&forecast_days=3","3":"","4":"&daily=wind_speed_10m_max","5":"&daily=precipitation_sum"}
     selezione_giorni = input("1: previsioni per un giorno\n2: previsioni per 3 giorni\n3: previsioni per 7 giorni\n")
     selezione_vento = input("vuoi anche le previsioni del vento? (4 per confermare): ")
     selezione_pioggia = input("vuoi anche le previsioni della pioggia? (5 per confermare): ")
