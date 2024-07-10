@@ -186,13 +186,16 @@ def rimuovi_corso():
         nome = studente.find("nome").text
         if nome == studente_C:
             utente = input("Inserisci il corso da eliminare: ")
-    for corso in root.findall("corsi"):
-        if corso == utente and not trovato:
-            trovato = True
-            root.remove(corso)
-            print("Il corso è stato eliminato")
-        else:
-            print("Il corso non è presente!")
+            corsi = studente.find("corsi")
+            for corso in corsi.findall("corso"):
+                if corso.find("nome").text == utente and not trovato:
+                    trovato = True
+                    corsi.remove(corso)
+    if trovato:
+        print("Il corso è stato eliminato")
+        scrivi(root)
+    else:
+        print("Il corso non è presente!")
 
 
 tree,root,vuoto = verifica()
