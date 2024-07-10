@@ -2,7 +2,7 @@ import requests
 import json
 
 def recupera_coordinate():
-    città = input("Indicare nome città (in inglese): ")
+    città = input("Indicare nome città: ")
     rec_coordinate = requests.get(f"https://geocoding-api.open-meteo.com/v1/search?name={città}&count=1&language=it&format=json").text
     conversione_in_dizionario = json.loads(rec_coordinate)
     latitudine = conversione_in_dizionario["results"][0]['latitude']
@@ -45,6 +45,11 @@ def stampa_previsioni(api,città):
         mm_pioggia = meteo_dict["daily"]["precipitation_sum"]
         for i in range(len(giorni_pioggia)):
             print(f"Giorno: {giorni_pioggia[i]} Millimetri della pioggia: {mm_pioggia[i]}")
+    if vento_b:
+        giorni_vento = meteo_dict["daily"]["time"]
+        raffiche_vento = meteo_dict["daily"]["wind_speed_10m_max"]
+        for i in range(len(giorni_vento)):
+            print(f"Giorno: {giorni_vento[i]} Millimetri della pioggia: {raffiche_vento[i]}")
 
 latitudine,longitudine,città = recupera_coordinate()
      
