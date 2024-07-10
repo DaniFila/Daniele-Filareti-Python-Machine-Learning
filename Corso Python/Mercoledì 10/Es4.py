@@ -9,12 +9,6 @@ def recupera_coordinate():
     longitudine = conversione_in_dizionario["results"][0]['longitude']
     return latitudine,longitudine,città
 
-
-
-
-
-latitudine,longitudine,città = recupera_coordinate()
-
 def imposta_api(latitudine,longitudine):
     pioggia_b = False
     vento_b = False
@@ -38,7 +32,6 @@ def imposta_api(latitudine,longitudine):
         pioggia_b = True
     return api,pioggia_b,vento_b
 
-
 def stampa_previsioni(api,città):
     meteo_g = requests.get(api).text
     meteo_dict = json.loads(meteo_g)
@@ -53,10 +46,8 @@ def stampa_previsioni(api,città):
         for i in range(len(giorni_pioggia)):
             print(f"Giorno: {giorni_pioggia[i]} Millimetri della pioggia: {mm_pioggia[i]}")
 
-        
-
-    
-
+latitudine,longitudine,città = recupera_coordinate()
+     
 api,pioggia_b,vento_b = imposta_api(latitudine,longitudine)
 
 stampa_previsioni(api,città)
