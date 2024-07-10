@@ -177,22 +177,25 @@ def modifica_corso():
             print("Not Found")
 
 def rimuovi_corso():
-    trovato = False
-    studente_C = input("Indicare nome studente da eliminare: ")
-    for studente in root.findall("studente"):
-        nome = studente.find("nome").text
-        if nome == studente_C:
-            utente = input("Inserisci il corso da eliminare: ")
-            corsi = studente.find("corsi")
-            for corso in corsi.findall("corso"):
-                if corso.find("nome").text == utente and not trovato:
-                    trovato = True
-                    corsi.remove(corso)
-    if trovato:
-        print("Il corso è stato eliminato")
-        scrivi(root)
+    if vuoto:
+        print("Nessun studente presente!")
     else:
-        print("Il corso non è presente!")
+        trovato = False
+        studente_C = input("Indicare nome studente da eliminare: ")
+        for studente in root.findall("studente"):
+            nome = studente.find("nome").text
+            if nome == studente_C:
+                utente = input("Inserisci il corso da eliminare: ")
+                corsi = studente.find("corsi")
+                for corso in corsi.findall("corso"):
+                    if corso.find("nome").text == utente and not trovato:
+                        trovato = True
+                        corsi.remove(corso)
+        if trovato:
+            print("Il corso è stato eliminato")
+            scrivi(root)
+        else:
+            print("Il corso non è presente!")
 
 
 while True:
