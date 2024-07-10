@@ -124,8 +124,83 @@ def modifica_studente():
             print("Studente non trovato!")
 
 
+def aggiungi_corso():
+    if vuoto:
+        print("Nessun studente presente!")
+    else:
+        nome = input("Inserisci il nome dell'utente da modificare: ")
+        trovato = False
+        for studente in root.findall("studente"):
+            if studente.find("nome").text == nome and not trovato:
+                print("Utente trovato!")
+                trovato = True
+                corsi = studente.find("corsi")
+                corso_nuovo = ET.Element("corso")
+                nome_corso = ET.Element("nome")
+                nome_corso.text = input("Inserire nome corso nuovo: ")
+                voto_corso = ET.Element("voto")
+                voto_corso.text = input("Inserire voto corso: ")
+                corso_nuovo.append(nome_corso)
+                corso_nuovo.append(voto_corso)
+                corsi.append(corso_nuovo)
+        if trovato:
+            print("corso aggiunto con successo!")
+            scrivi(root)
+        else:
+            print("Utente non trovato.")
+                
+
+def modifica_corso():
+    if vuoto:
+        print("Nessun studente presente!")
+    else:
+        nome = input("Inserisci il nome dell'utente da modificare: ")
+        trovato = False
+        for studente in root.findall("studente"):
+            if studente.find("nome").text == nome and not trovato:
+                trovato = True
+                print("Utente trovato!")
+                corso_S = input("Inserire corso da modificare: ")
+                corsi = studente.find("corsi")
+                for corso in corsi.findall("corso"):
+                    if corso.find("nome").text == corso_S:
+                        print("Corso trovato!")
+                        select = input("1: modifica nome\n2: modifica voto\n")
+                        if select == "1":
+                            corso.find("nome").text = input("Inserisci nuovo nome: ")
+                        elif select == "2":
+                            corso.find("voto").text = input("Inserire voto modificato: ")
+                        else:
+                            print("Scelta non valida.")
+        if trovato:
+            print("Modificato con successo!")
+            scrivi(root)
+        else:
+            print("Not Found")
+
+
+def rimuovi_corso():
+    trovato = False
+    studente_C = input("Indicare nome studente da eliminare: ")
+    for studente in root.findall("studente"):
+        nome = studente.find("nome").text
+        if nome == studente_C:
+            utente = input("Inserisci il corso da eliminare: ")
+    for corso in root.findall("corsi"):
+        if corso == utente and not trovato:
+            trovato = True
+            root.remove(corso)
+            print("Il corso è stato eliminato")
+        else:
+            print("Il corso non è presente!")
+
 
 tree,root,vuoto = verifica()
+
+rimuovi_corso()
+
+
+
 
 
 
