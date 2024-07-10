@@ -22,7 +22,7 @@ def verifica():
         return tree,root,vuoto
 
 def menu():
-    info_menu = "1: Aggiungi studente\n2: Elimina studente\n3: modifica studente\n"
+    info_menu = "\n1: Aggiungi studente\n2: Elimina studente\n3: modifica nome studente\n4: aggiungi corso\n5: modifica corso\n6: rimuovi corso\n0: Exit\n"
 
     scelta_menu = input(info_menu)
     return scelta_menu
@@ -77,7 +77,7 @@ def aggiungi():
             corsi.append(corso_nuovo)
         studente.append(corsi)
         root.append(studente)
-        scrivi(root1)
+        scrivi(root)
         print("Studente aggiunto con successo!")
 
 def rimuovi():
@@ -96,10 +96,10 @@ def rimuovi():
         else:
             print("Studente eliminato con successo!")
             scrivi(root)
-    # pulisci()
+    pulisci()
         
 def pulisci():
-    clear = ""
+    clear = ET.Element("")
     count = 0
     for studente in root.findall("studente"):
         count+=1
@@ -122,7 +122,6 @@ def modifica_studente():
             scrivi(root)
         else:
             print("Studente non trovato!")
-
 
 def aggiungi_corso():
     if vuoto:
@@ -149,7 +148,6 @@ def aggiungi_corso():
         else:
             print("Utente non trovato.")
                 
-
 def modifica_corso():
     if vuoto:
         print("Nessun studente presente!")
@@ -178,7 +176,6 @@ def modifica_corso():
         else:
             print("Not Found")
 
-
 def rimuovi_corso():
     trovato = False
     studente_C = input("Indicare nome studente da eliminare: ")
@@ -198,9 +195,26 @@ def rimuovi_corso():
         print("Il corso non è presente!")
 
 
-tree,root,vuoto = verifica()
 
-rimuovi_corso()
+while True:
+    tree,root,vuoto = verifica()
+    scelta_menu = menu()
+    if scelta_menu == "1":
+        aggiungi()
+    elif scelta_menu == "2":
+        rimuovi()
+    elif scelta_menu == "3":
+        modifica_studente()
+    elif scelta_menu == "4":
+        aggiungi_corso()
+    elif scelta_menu == "5":
+        modifica_corso()
+    elif scelta_menu == "6":
+        rimuovi_corso()
+    elif scelta_menu == "0":
+        break
+    else:
+        print("Error")
 
 
 
