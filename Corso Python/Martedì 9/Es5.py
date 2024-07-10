@@ -195,7 +195,6 @@ def rimuovi_corso():
         print("Il corso non è presente!")
 
 
-
 while True:
     tree,root,vuoto = verifica()
     scelta_menu = menu()
