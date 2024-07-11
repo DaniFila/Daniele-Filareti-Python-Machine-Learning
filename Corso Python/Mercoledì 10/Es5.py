@@ -20,8 +20,6 @@ def verifica_file():
         pokedex=lettura_file()
     except:
         print("File non esistente. Creazione nuovo file")
-        pokedex={}
-        scrivi_file(pokedex)
         vuoto = True
         print("file creato")
     return pokedex,vuoto
