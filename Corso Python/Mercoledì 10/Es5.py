@@ -15,14 +15,16 @@ def lettura_file():
     return dizionario_json
 
 def verifica_file():
+    vuoto = False
     try:
         pokedex=lettura_file()
     except:
         print("File non esistente. Creazione nuovo file")
         pokedex={}
         scrivi_file(pokedex)
+        vuoto = True
         print("file creato")
-    return pokedex
+    return pokedex,vuoto
 
 def pokemon_casuale():
     casuale=str(randint(1,20))
@@ -36,6 +38,8 @@ def pokemon_casuale():
     peso=api_poke_casuale["weight"]
     altezza=api_poke_casuale["height"]
     pokemon = {"nome":nome,"exp":exp,"abilità":abilita,"peso":peso,"altezza":altezza}
+    print("\nID:",id,"nome:", pokemon["nome"], "exp:", pokemon["exp"], "peso:", pokemon["peso"], "altezza:", pokemon["altezza"])
+
     
     return pokemon,id
 
@@ -52,21 +56,37 @@ def aggiornamento_pokedex(pokemon,pokedex,id):
         scrivi_file(pokedex)
 
 def visualizza_pokedex(pokedex):
-    for chiave in pokedex:
-        id = chiave
-        print(f"ID: {id} nome: {pokedex[id]["nome"]},exp: {pokedex[id]["exp"]}, abilità: {pokedex[id]["abilità"]}, peso: {pokedex[id]["peso"]}, altezza: {pokedex[id]["altezza"]}")
-    
+    if vuoto:
+        print("Il pokedex è vuoto")
+    else:
+        lista_id = []
+        for chiave in pokedex:
+            lista_id.append(chiave)
+        for id in lista_id:
+            abilità = pokedex[id]["abilità"]
+            print("ID:",id,"nome:", pokedex[id]["nome"], "exp:", pokedex[id]["exp"], "peso:", pokedex[id]["peso"], "altezza:", pokedex[id]["altezza"])
+            print("Abilità:")
+            for i in range(len(abilità)):
+                print(abilità[i]["ability"]["name"])
+            print("")
+
+def menu():
+    info_menu = "1: Visualizza Pokedex\n2: Genera pokemon casuale\n0: Exit\n"
+    scelta_menu = input(info_menu)
+    return scelta_menu
 
 
-
-
-
-
-
-
-
-
-pokedex = verifica_file()
-pokemon, id = pokemon_casuale()
-#aggiornamento_pokedex(pokemon,pokedex,id)
-visualizza_pokedex(pokedex)
+while True:
+    pokedex,vuoto = verifica_file()
+    scelta_menù = menu()
+    if scelta_menù == "1":
+        visualizza_pokedex(pokedex)
+    elif scelta_menù == "2":
+        pokemon,id = pokemon_casuale()
+        scelta = input("Vuoi salvarlo? 1 per confermare: ")
+        if scelta == "1":
+            aggiornamento_pokedex(pokemon,pokedex,id)
+    elif scelta_menù == "3":
+        break
+    else:
+        print("Error")
