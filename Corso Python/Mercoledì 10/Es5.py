@@ -86,7 +86,9 @@ while True:
         scelta = input("Vuoi salvarlo? 1 per confermare: ")
         if scelta == "1":
             aggiornamento_pokedex(pokemon,pokedex,id)
-    elif scelta_menù == "3":
+        else:
+            print("Arrivederci!")
+    elif scelta_menù == "0":
         break
     else:
         print("Error")
