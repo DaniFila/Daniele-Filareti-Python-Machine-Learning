@@ -11,7 +11,7 @@ def connessione_server():
         host="localhost",
         user="root",
         password="root",
-        port ="3306"
+        port ="8889"
         )
 
         print(mydb)
