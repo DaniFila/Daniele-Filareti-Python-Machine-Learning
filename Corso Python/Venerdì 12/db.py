@@ -43,8 +43,8 @@ my_cursor = mydb.cursor()
 #query = "CREATE TABLE customers (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), address VARCHAR(255))"
 #query = "show tables"
 
-sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-val = [
+#sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
+"""val = [
   ('Peter', 'Lowstreet 4'),
   ('Amy', 'Apple st 652'),
   ('Hannah', 'Mountain 21'),
@@ -57,12 +57,30 @@ val = [
   ('Ben', 'Park Lane 38'),
   ('William', 'Central st 954'),
   ('Chuck', 'Main Road 989'),
-  ('Viola', 'Sideway 1633')]
+  ('Viola', 'Sideway 1633')]"""
 
-my_cursor.executemany(sql, val)
+#val = ('Peter', 'Lowstreet 4'),
+# my_cursor.execute(sql, val)
 
-mydb.commit()
+#my_cursor.executemany(sql, val)
 
-print(my_cursor.rowcount, "record inserted.")
+#mydb.commit()
+
+#print(my_cursor.rowcount, "record inserted.")
 
 
+def inserimento(query,valori):
+    my_cursor.executemany(query,valori)
+    mydb.commit()
+    print(my_cursor.rowcount, "record inserted.")
+
+def seleziona(query):
+    my_cursor.execute(query)
+    risultati = my_cursor.fetchall()
+    for risultato in risultati:
+        print(risultato)
+
+
+query = "select * from customers"
+
+seleziona(query)
