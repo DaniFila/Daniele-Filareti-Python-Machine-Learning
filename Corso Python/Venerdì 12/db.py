@@ -40,7 +40,7 @@ def connessione_database():
 mydb = connessione_database()
 my_cursor = mydb.cursor()
 
-#query = "CREATE TABLE customers (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), address VARCHAR(255))"
+#query = "CREATE TABLE studenti (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255),cognome VARCHAR(255), italiano INT, matematica INT, storia INT)"
 #query = "show tables"
 
 #sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
