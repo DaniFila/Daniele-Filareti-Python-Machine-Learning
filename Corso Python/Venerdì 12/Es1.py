@@ -128,6 +128,7 @@ def menù():
     scelta_menu= input(info_menù)
     return scelta_menu
 
+
 while True:
     mydb = connessione_database()
     mycursor = mydb.cursor()
