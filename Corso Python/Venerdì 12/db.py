@@ -87,7 +87,13 @@ def eliminazione(query):
     print(my_cursor.rowcount, "record deleted.")
 
 
-query1 = "select * from customers"
+def aggiorna(query):
+    my_cursor.execute(query)
+    mydb.commit()
+    print(my_cursor.rowcount, "record updated.")
+
+
+#query1 = "select * from customers"
 
 #seleziona(query)
 
@@ -95,4 +101,9 @@ query1 = "select * from customers"
 
 #eliminazione(query)
 
-seleziona(query1)
+
+#query = "UPDATE customers set address = 'cariati 7' WHERE address ='Lowstreet 4'"
+
+#aggiorna(query)
+
+#seleziona(query1)
