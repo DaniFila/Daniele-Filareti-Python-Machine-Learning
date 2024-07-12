@@ -85,7 +85,14 @@ def eliminazione(query):
     my_cursor.execute(query)
     mydb.commit()
     print(my_cursor.rowcount, "record deleted.")
-#query = "select * from customers"
+
+
+query1 = "select * from customers"
 
 #seleziona(query)
 
+#query = "delete from customers WHERE address = 'Mountain 21' "
+
+#eliminazione(query)
+
+seleziona(query1)
