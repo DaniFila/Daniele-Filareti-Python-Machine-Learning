@@ -30,11 +30,16 @@ def connessione_database():
         port = "8889",
         database = "testpython"
         )
-        my_cursor = mydb.cursor()
         print("Connessione avvenuta!")
-        return my_cursor
+        return mydb
     except:
         print("Errore")
 
 
-my_cursor = connessione_database()
+
+mydb = connessione_database()
+my_cursor = mydb.cursor()
+
+query = "CREATE TABLE customers (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), address VARCHAR(255))"
+
+my_cursor.execute(query)
