@@ -77,10 +77,15 @@ def inserimento(query,valori):
 def seleziona(query):
     my_cursor.execute(query)
     risultati = my_cursor.fetchall()
+    #risultati = my_cursor.fetchone()
     for risultato in risultati:
         print(risultato)
 
+def eliminazione(query):
+    my_cursor.execute(query)
+    mydb.commit()
+    print(my_cursor.rowcount, "record deleted.")
+#query = "select * from customers"
 
-query = "select * from customers"
+#seleziona(query)
 
-seleziona(query)
