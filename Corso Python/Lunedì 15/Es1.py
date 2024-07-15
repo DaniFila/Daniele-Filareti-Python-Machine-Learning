@@ -13,3 +13,4 @@ while True:
     z = input("Vuoi ripetere? ") # si richiede se si vuole ripetere
     if z != "si":
         break
+
