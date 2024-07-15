@@ -13,3 +13,21 @@ print("Somma degli elementi:", arr.sum())  # Output: 15
 print("Media degli elementi:", arr.mean())  # Output: 3.0
 print("Valore massimo:", arr.max())  # Output: 5
 print("Indice del valore massimo:", arr.argmax())  # Output: 4
+
+
+#------------------------------------------------------------------------------------------
+
+arr1 = np.array([1,2,3,4],dtype = 'int32')
+
+
+print("Il tipo dell'array arr2 è:",arr1.dtype)
+
+
+
+arrp = np.arange(6)
+
+print(arrp)
+
+reshaped_arrp = arrp.reshape(2, 3)
+
+print(reshaped_arrp)
