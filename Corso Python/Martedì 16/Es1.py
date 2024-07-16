@@ -28,7 +28,7 @@ def punto_6(matr,matr_4x4,in_matr,diag_princ,in_matr_5): # funzione che richiama
     print(f"Diagonale principale:\n {diag_princ}\n")
     print(f"Matrice invertita modificata:\n {in_matr_5}\n")
 
-def menu():
+def menu(): # funzione menu che stampa un menù di selezione che si richiede da input
     info = """1: crea sotto matrice
 2: inverti righe matrice
 3: estrai diagonale principale
@@ -39,7 +39,7 @@ def menu():
     scelta_menu = input(info)
     return scelta_menu
 
-def main():
+def main(): # funzione main che richiama tutte le altre funzioni e fa un ciclo richiedendo all'utente tramite il menù la scelta che vuole fare
     matr = punto_1()
     matr_4x4 = punto_2(matr)
     in_matr = punto_3(matr_4x4)
