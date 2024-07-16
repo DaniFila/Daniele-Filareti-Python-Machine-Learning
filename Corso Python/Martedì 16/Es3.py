@@ -9,16 +9,25 @@ def punto_2(): # funzione che crea array con valori casuali tra 0 e 1 con 50 ele
     return a
 
 def punto_3(arr1,arr2): # funzione che crea array sommando elemento per elemento dai 2 array
-    a = np.add(arr1,arr2)
-    return a
+    try:
+        a = np.add(arr1,arr2)
+        return a
+    except:
+        print("Argomenti passati non validi per effettuare operazione!")
 
 def punto_4(arr): # funzione che calcola la somma di un array
-    somma = np.sum(arr)
-    return somma
+    try:
+        somma = np.sum(arr)
+        return somma
+    except:
+        print("Argomento passato non valido per effettuare operazione!")
 
 def punto_5(arr): # funzione che calcola la somma di un array con la condizione che l'elemento deve essere maggiore di 5
-    somma = np.sum(arr[arr>5])
-    return somma
+    try:
+        somma = np.sum(arr[arr>5])
+        return somma
+    except:
+        print("Argomento passato non valido per effettuare operazione!")
 
 def punto_7(arr_equi,arr_random,sum_arr,sum_elem,sum_cond): # funzione che stampa tutte le operazioni delle altre funzioni
     print(f"\nArray con 50 elementi equidistanti da 0 a 10:\n{arr_equi}")
