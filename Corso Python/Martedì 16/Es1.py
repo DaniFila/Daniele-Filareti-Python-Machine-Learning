@@ -29,7 +29,7 @@ def punto_6(matr,matr_4x4,in_matr,diag_princ,in_matr_5): # funzione che richiama
     print(f"Matrice invertita modificata:\n {in_matr_5}\n")
 
 def menu(): # funzione menu che stampa un menù di selezione che si richiede da input
-    info = """1: crea sotto matrice
+    info = """\n1: crea sotto matrice
 2: inverti righe matrice
 3: estrai diagonale principale
 4: modifica matrice invertita
@@ -48,13 +48,13 @@ def main(): # funzione main che richiama tutte le altre funzioni e fa un ciclo r
     while True:
         scelta_menu = menu()
         if scelta_menu == "1":
-            print(f"Sotto matrice 4x4:\n {matr_4x4}\n")
+            print(f"\nSotto matrice 4x4:\n {matr_4x4}\n")
         elif scelta_menu == "2":
-            print(f"Matrice invertita:\n {in_matr}\n")
+            print(f"\nMatrice invertita:\n {in_matr}\n")
         elif scelta_menu == "3":
-            print(f"Diagonale principale:\n {diag_princ}\n")
+            print(f"\nDiagonale principale:\n {diag_princ}\n")
         elif scelta_menu == "4":
-            print(f"Matrice invertita modificata:\n {in_matr_5}\n")
+            print(f"\nMatrice invertita modificata:\n {in_matr_5}\n")
         elif scelta_menu == "5":
             punto_6(matr,matr_4x4,in_matr,diag_princ,in_matr_5)
         elif scelta_menu == "6":
