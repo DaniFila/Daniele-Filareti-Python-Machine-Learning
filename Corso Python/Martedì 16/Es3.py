@@ -56,24 +56,27 @@ def main(): # funzione main che richiama tutte le funzioni ed effettua le operaz
     sum_arr = punto_3(arr_equi,arr_random)
     sum_elem = punto_4(sum_arr)
     sum_cond = punto_5(sum_arr)
-    while True:
-        scelta_menu = menu()
-        if scelta_menu == "1":
-            print(f"\nArray con 50 elementi equidistanti da 0 a 10:\n{arr_equi}")
-        elif scelta_menu == "2":
-            print(f"\nArray con 50 elementi casuali tra 0 e 1:\n{arr_random}")
-        elif scelta_menu == "3":
-            print(f"\nArray somma dei 2 array:\n{sum_arr}")
-        elif scelta_menu == "4":
-            print(f"\nSomma elementi dell'array:\n{sum_elem}")
-        elif scelta_menu == "5":
-            print(f"\nSomma elementi dell'array maggiori di 5:\n{sum_cond}")
-        elif scelta_menu == "6":
-            punto_7(arr_equi,arr_random,sum_arr,sum_elem,sum_cond)
-        elif scelta_menu == "7":
-            break
-        else:
-            print("Scelta non valida")
+    if sum_arr != None:
+        while True:
+            scelta_menu = menu()
+            if scelta_menu == "1":
+                print(f"\nArray con 50 elementi equidistanti da 0 a 10:\n{arr_equi}")
+            elif scelta_menu == "2":
+                print(f"\nArray con 50 elementi casuali tra 0 e 1:\n{arr_random}")
+            elif scelta_menu == "3":
+                print(f"\nArray somma dei 2 array:\n{sum_arr}")
+            elif scelta_menu == "4":
+                print(f"\nSomma elementi dell'array:\n{sum_elem}")
+            elif scelta_menu == "5":
+                print(f"\nSomma elementi dell'array maggiori di 5:\n{sum_cond}")
+            elif scelta_menu == "6":
+                punto_7(arr_equi,arr_random,sum_arr,sum_elem,sum_cond)
+            elif scelta_menu == "7":
+                break
+            else:
+                print("Scelta non valida")
+    else:
+        print("Non è possibile proseguire!")
 
 
 main()
