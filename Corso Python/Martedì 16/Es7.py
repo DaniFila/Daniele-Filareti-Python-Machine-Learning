@@ -1,6 +1,6 @@
-import mod_Es7 as mod1
+import mod_Es7 as mod1     #import modulo con funzioni
 
-def menu():
+def menu(): #menu
     print("""1. Stampa matrice
 2. Estrai sottomatrice
 3. Matrice trasposta        
@@ -10,30 +10,30 @@ def menu():
 7. Calcolo determinante                     
 0. Esci
 """)
-    scelta_menu=input("\nInserisci una scelta: ")
+    scelta_menu=input("Inserisci una scelta: ")
     return scelta_menu
 
-def main():
+def main(): #main
     mat,righe,col=mod1.crea_matrice()
     while True:
         scelta=menu()
-        if scelta=="1":
+        if scelta=="1": #Stampa matrice
             print(f"\nLa matrice è:\n {mat}")
-        elif scelta=="2":
+        elif scelta=="2":       #Estrai sottomatrice
             mod1.sotto_matrice(mat,righe,col)
-        elif scelta=="3":
+        elif scelta=="3":       #Matrice trasposta
             mod1.trasp_matrice(mat)
-        elif scelta=="4":
+        elif scelta=="4":       #Somma elementi matrice
             mod1.somma_elem(mat)
-        elif scelta=="5":
+        elif scelta=="5":       #Moltiplicazione element-wise
             mod1.molt_elem_wise(mat,righe,col)
-        elif scelta=="6":
+        elif scelta=="6":       #Media elementi matrice
             mod1.media_mat(mat)
-        elif scelta=="7":
+        elif scelta=="7":       #Calcolo determinante
             mod1.det_mat(mat,righe,col)
-        elif scelta=="0":
+        elif scelta=="0":       #Esci
             break
         else:
             print("Scelta sbagliata")
 
-main()
+main()      #richiamo al main
