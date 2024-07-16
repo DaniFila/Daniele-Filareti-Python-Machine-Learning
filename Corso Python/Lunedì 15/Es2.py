@@ -19,6 +19,6 @@ def main():
 main()
 
 def menù():
-    info = "\n1: primi 10 elementi dell'array\n2: ultimi 5 elementi dell'array\n3:Elementi dall'indice 5 all'indici 15 escluso\n4: Ogni terzo elemento dell'array\n5: Cambio elementi con valore 99 dall'indice 5 al 10 escluso\n "
+    info = "\n1: primi 10 elementi dell'array\n2: ultimi 5 elementi dell'array\n3:Elementi dall'indice 5 all'indici 15 escluso\n4: Ogni terzo elemento dell'array\n5: Cambio elementi con valore 99 dall'indice 5 al 10 escluso\n6: exit\n "
     scelta_menu = input(info)
     return scelta_menu
