@@ -1,7 +1,6 @@
 import mod_Es7 as mod1     #import modulo con funzioni
 
-#menu
-def menu():
+def menu(): #menu
     print("""\nMenù:
 1. Stampa matrice
 2. Estrai sottomatrice
@@ -15,8 +14,7 @@ def menu():
     scelta_menu=input("\nScegli un opzione: ")
     return scelta_menu
 
-#main
-def main():
+def main(): #main
     print("\nCreazione Matrice 2D...\n")
     mat,righe,col=mod1.crea_matrice()   #creazione della matrice di partenza fuori dal while
 
@@ -45,6 +43,5 @@ def main():
         if nuova_scelta.lower() != "si":
             print("\nSistema in chiusura. Arrivederci!")
             break
-
 
 main()      #richiamo al main
