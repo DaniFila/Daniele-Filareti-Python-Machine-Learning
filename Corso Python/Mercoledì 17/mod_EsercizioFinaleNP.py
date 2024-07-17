@@ -57,7 +57,12 @@ def matrice_inversa(matrice,righe,col): # funzione che calcola la matrice invers
 
 def filtro_mat(matrice): # funzione che filtra elementi della matrice
     matr_filtr = None
-    f = int(input("Inserire filtro: "))
+    while True:
+        try:
+            f = int(input("Inserire filtro: "))
+            break
+        except ValueError as e:
+                    print("\nErrore nel valore passato:", e, "\nInserisci un valore intero valido! \n")
     while True:
         bol = input("1: Minore di\n2: Maggiore di\n")
         if bol == "1":
