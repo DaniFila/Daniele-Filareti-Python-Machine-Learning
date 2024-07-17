@@ -1,42 +1,46 @@
-import pandas as pd
-import numpy as np
+import mod_Es1_pandas as Es1
+def menu():
+    info = """1: Visualizza DataFrame
+2: Visualizza le prime 5 righe
+3: Visualizza le ultime 5 righe
+4: Visualizza il tipo di dati di ciascuna colonna
+5: Calcola statistiche descrittive
+6: Identificare e rimuovere eventuali duplicati
+7: Gestione valori mancanti
+8: Aggiunta Categoria età
+9: Salva su file CSV
+0: Exit
+"""
+    s = input(info)
+    return s
+
+def main():
+    df = Es1.genera_dataframe()
+    while True:
+        s = menu()
+        if s == "1":
+            print(df)
+        elif s == "2":
+            Es1.visualizza_prime_5_righe(df)
+        elif s == "3":
+            Es1.visualizza_ultime_5_righe(df)
+        elif s == "4":
+            Es1.visualizza_tipo_dati(df)
+        elif s == "5":
+            Es1.descrivi_stato(df)
+        elif s == "6":
+            Es1.rimuovi_duplicati(df)
+        elif s == "7":
+            Es1.gestione_valori_mancanti(df)
+        elif s == "8":
+            Es1.aggiungi_categorie_età_verifica(df)
+        elif s == "9":
+            Es1.salva_in_csv(df)
+        elif s == "0":
+            print("Arrivederci!")
+            break
+        else:
+            print("Scelta non valida!")
 
 
-def genera_dataframe():
-    nomi = ["Alessandro","Beatrice","Carlo","Daniele","Enrico","Francesca","Giulia","Leonardo","Martina","Nicola"]
-    città =  ["Roma","Milano","Napoli","Torino","Palermo","Genova","Bologna","Firenze","Venezia","Verona"]
-    data = {"Nome":np.random.choice(nomi,20),
-            "Città":np.random.choice(città,20),
-            "Età":np.random.randint(0,90,20),
-            "Salario":np.random.randint(1000,10000,20)}
-    df = pd.DataFrame(data)
-    return df
-
-def visualizza_prime_5_righe(df):
-    d = df.head()
-    print(f"Le prime 5 righe sono:\n{d}")
-
-def visualizza_ultime_5_righe(df):
-    d = df.tail()
-    print(f"Le ultime 5 righe sono:\n{d}")
-
-df = genera_dataframe()
-
-def visualizza_tipo_dati(df):
-    tipo = df.dtypes
-    print(f"I tipi di dati sono:\n{tipo}")
-
-
-def descrivi_stato(df):
-    descrivi = df.describe()
-    print(f"Descrizione:\n{descrivi}")
-
-def rimuovi_duplicati(df):
-    df_senza_duplicati = df.drop_duplicates()
-    return df_senza_duplicati
-
-def salva_in_csv(df):
-    df.to_csv("Corso Python/Mercoledì 17/Es1.csv")
-    print("Salvato con successo!")
-
-salva_in_csv(df)
+main()
