@@ -28,7 +28,7 @@ def crea_matrice():
 
         matrice = v.reshape(righe, col)
 
-    print(f"\nLa matrice 2D di partenza è:\n {matrice}")
+    print(f"\nLa matrice 2D è:\n {matrice}")
 
     return matrice,righe,col    #return della matrice creata, delle righe e delle colonne
 
