@@ -1,3 +1,5 @@
+# Daniele,Matteo,Danilo
+
 import mod_EsercizioFinaleNP as mod1     #import modulo con funzioni
 
 def menu(): #menu
