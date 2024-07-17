@@ -22,7 +22,6 @@ def visualizza_ultime_5_righe(df):
 
 df = genera_dataframe()
 
-
 def visualizza_tipo_dati(df):
     tipo = df.dtypes
     print(f"I tipi di dati sono:\n{tipo}")
@@ -36,9 +35,8 @@ def rimuovi_duplicati(df):
     df_senza_duplicati = df.drop_duplicates()
     return df_senza_duplicati
 
+def salva_in_csv(df):
+    df.to_csv("Corso Python/Mercoledì 17/Es1.csv")
+    print("Salvato con successo!")
 
-
-print(df)
-df = rimuovi_duplicati(df)
-print()
-print(df)
+salva_in_csv(df)
