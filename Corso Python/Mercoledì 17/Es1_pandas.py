@@ -3,7 +3,7 @@ import numpy as np
 
 
 def genera_dataframe():
-    nomi = ["Alessandro","Beatrice","Carlo","Daniela","Enrico","Francesca","Giulia","Leonardo","Martina","Nicola"]
+    nomi = ["Alessandro","Beatrice","Carlo","Daniele","Enrico","Francesca","Giulia","Leonardo","Martina","Nicola"]
     città =  ["Roma","Milano","Napoli","Torino","Palermo","Genova","Bologna","Firenze","Venezia","Verona"]
     data = {"Nome":np.random.choice(nomi,20),
             "Città":np.random.choice(città,20),
@@ -32,7 +32,13 @@ def descrivi_stato(df):
     descrivi = df.describe()
     print(f"Descrizione:\n{descrivi}")
 
-descrivi_stato(df)
-#descriptive_stats = df.describe()
+def rimuovi_duplicati(df):
+    df_senza_duplicati = df.drop_duplicates()
+    return df_senza_duplicati
 
-#df_no_duplicates = df.drop_duplicates()
+
+
+print(df)
+df = rimuovi_duplicati(df)
+print()
+print(df)
