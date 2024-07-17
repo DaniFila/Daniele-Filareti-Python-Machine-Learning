@@ -1,4 +1,4 @@
-import Es2
+import mod_Es2_pandas as Es2
 
 def scelte_menu(): # funzione menù che stampa le opzioni e chiede all'utente la scelta
         info = """\n1: Visualizza DataFrame
