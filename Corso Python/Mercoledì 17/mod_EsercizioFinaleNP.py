@@ -96,4 +96,13 @@ def funzione_matematica(matrice): # funzione che effettua funzioni matematiche a
         else:
             print("Scelta non valida!")
 
+def scelta():
+    while True:
+        s = input("Vuoi eseguire l'operazione con una nuova matrice?\n1: SI\n2: NO\n")
+        if s == "1":
+            return True
+        elif s == "2":
+            return False
+        else:
+            print("Scelta non valida")
 
