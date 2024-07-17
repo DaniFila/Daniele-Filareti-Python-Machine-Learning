@@ -30,27 +30,27 @@ def main(): # funzione main che richiama la classe menù e la classe Vendite del
             try:  # verifica per l'operazione che la colonna Vendite Totali sia creata
                 df.prodotto_più_venduto_su_quantità()
             except:
-                print("Colonna Vendite Totali non creata!")
+                print("\nColonna Vendite Totali non creata!")
         elif scelta == "5":
             try: # verifica per l'operazione che la colonna Vendite Totali sia creata
                 df.città_con_maggior_volume_vendite_tot()
             except:
-                print("Colonna Vendite Totali non creata!")
+                print("\nColonna Vendite Totali non creata!")
         elif scelta == "6":
             try: # verifica per l'operazione che la colonna Vendite Totali sia creata
                 df.nuovo_dataframe_filtrato()
             except:
-                print("Colonna Vendite Totali non creata!")
+                print("\nColonna Vendite Totali non creata!")
         elif scelta == "7":
             try: # verifica per l'operazione che la colonna Vendite Totali sia creata
                 df.ordina_tot_vendite_desc()
             except:
-                print("Colonna Vendite Totali non creata!")
+                print("\nColonna Vendite Totali non creata!")
         elif scelta == "8":
             try: # verifica per l'operazione che la colonna Vendite Totali sia creata
                 df.visualizza_vendite_per_città()
             except:
-                print("Colonna Vendite Totali non creata!")
+                print("\nColonna Vendite Totali non creata!")
         elif scelta == "0":
             print("Arrivederci!")
             break
