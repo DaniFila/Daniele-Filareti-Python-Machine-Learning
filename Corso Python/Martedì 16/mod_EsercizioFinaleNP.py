@@ -48,5 +48,24 @@ def media_mat(matrice): #calcolo media della matrice
 def matrice_inversa(matrice,righe,col): # funzione che calcola la matrice inversa
     det = np.linalg.det(matrice)
     if righe == col and det != 0: # la matrice è invertibile solo se è quadrata ed il suo determinante è diverso da 0
-        mat_inv = matrice.linalg.inv()
-    print(f"La matrice inversa è:\n{mat_inv}")
+        mat_inv = np.linalg.inv(matrice)
+        print(f"La matrice inversa è:\n{mat_inv}")
+    else:
+        print(f"La matrice non è invertibile!")
+
+def filtro_mat(matrice): # funzione che filtra elementi della matrice
+    matr_filtr = None
+    f = int(input("Inserire filtro: "))
+    while True:
+        bol = input("1: Minore di\n2: Maggiore di\n")
+        if bol == "1":
+            matr_filtr = matrice[matrice<f]
+            break
+        elif bol == "2":
+            matr_filtr = matrice[matrice>f]
+            break
+        else:
+            print("Indicare scelta valida")
+    print(f"Elementi della matrice con filtro eseguito:\n{matr_filtr}")
+
+
