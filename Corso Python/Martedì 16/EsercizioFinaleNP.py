@@ -1,46 +1,47 @@
-import numpy as np
+import mod_EsercizioFinaleNP as mod1     #import modulo con funzioni
 
+def menu(): #menu
+    print("""\nMenù:
+1. Stampa matrice
+2. Estrai sottomatrice
+3. Matrice trasposta        
+4. Somma elementi matrice
+5. Moltiplicazione element-wise
+6. Media elementi matrice
+7. Calcolo determinante                     
+0. Esci
+""")
+    scelta_menu=input("\nScegli un opzione: ")
+    return scelta_menu
 
-def crea_matrice(): #creazione della matrice
-    while True:     #inserimento righe e colonne con un while finchè non viene inserito un valore accettabile
-        try:        
-            righe=int(input("Inserisci il numero di righe: "))
-            break
-        except ValueError as e:
-            print("\nErrore nel valore passato:", e, "\nInserisci un valore intero valido! \n")   #except con ValueError nel caso in cui si inserisce un valore non intero
+def main(): #main
+    print("\nCreazione Matrice 2D...\n")
+    mat,righe,col=mod1.crea_matrice()   #creazione della matrice di partenza fuori dal while
+
     while True:
-        try:
-            col=int(input("Inserisci il numero di colonne: "))
+        scelta=menu()
+        if scelta=="1":         #Stampa matrice
+            print(f"\nLa matrice 2D di partenza è:\n {mat}")
+        elif scelta=="2":       #Estrai sottomatrice
+            mod1.sotto_matrice(mat,righe,col)
+        elif scelta=="3":       #Matrice trasposta
+            mod1.trasp_matrice(mat)
+        elif scelta=="4":       #Somma elementi matrice
+            mod1.somma_elem(mat)
+        elif scelta=="5":       #Moltiplicazione element-wise
+            mod1.molt_elem_wise(mat,righe,col)
+        elif scelta=="6":       #Media elementi matrice
+            mod1.media_mat(mat)
+        elif scelta=="7":       #Calcolo determinante
+            mod1.det_mat(mat,righe,col)
+        elif scelta=="0":       #Esci
             break
-        except ValueError as e:
-            print("\nErrore nel valore passato:", e, "\nInserisci un valore intero valido! \n")   #except con ValueError nel caso in cui si inserisce un valore non intero
+        else:
+            print("Scelta sbagliata")
 
-    matrice = np.random.randint(0,100,size=(righe,col))
-    print(f"\nLa matrice 2D di partenza è:\n {matrice}")
+        nuova_scelta = input("\nVuoi effettuare un'altra operazione? ") #ripetibilità gestita tramite la richiesta di una nuova operazione
+        if nuova_scelta.lower() != "si":
+            print("\nSistema in chiusura. Arrivederci!")
+            break
 
-    return matrice,righe,col    #return della matrice creata, delle righe e delle colonne
-
-def sotto_matrice(matrice,righe,col): #calcolo sottomatrice dalla prima riga alla penultima, e dalla prima colonna alla penultima
-    print(f"\nSotto-Matrice centrale:\n {matrice[1:righe-1,1:col-1]}")    #sotto-matrice tramite Slicing
-
-def trasp_matrice(matrice): #calcolo matrice trasposta
-    trasposta=matrice.T     #metodo numpy per il calcolo della trasposta
-    print("\nMatrice Trasposta: \n", trasposta)
-
-def somma_elem(matrice): #somma degli elementi della matrice
-    print(f"\nLa somma degli elementi della matrice è: {np.sum(matrice)}")
-
-def det_mat(matrice,righe,col): #calcolo determinante della matrice se righe==col
-    if righe==col:
-        print(f"\nIl determinante della matrice è: {np.linalg.det(matrice)}") #calcolo determinante tramite linalg.det solo se righe e colonne sono uguali
-    else:
-        print("\nNumero di righe e colonne diverso. Non si può calcolare il determinante. ")
-
-def molt_elem_wise(matrice,righe,col): #moltiplicazione element-wise
-    matrice2=np.random.randint(0,100,size=(righe,col))
-    prodotto_matrici=matrice*matrice2   #prodotto elemento per elemento
-    print(f"\nSeconda matrice generata:\n{matrice2}\n")
-    print(f"Prodotto delle due matrici:\n {prodotto_matrici}")
-
-def media_mat(matrice): #calcolo media della matrice
-    print(f"\nLa media degli elementi della matrice è: {np.mean(matrice)}")
+main()      #richiamo al main
