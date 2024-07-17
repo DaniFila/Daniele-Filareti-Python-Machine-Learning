@@ -1,5 +1,5 @@
-import mod_Es1_pandas as Es1
-def menu():
+import mod_Es1_pandas as Es1 # importo il modulo dell'esercizio con tutte le funzioni
+def menu(): # funzione menù che stampa le opzioni e chiede all'utente la scelta
     info = """1: Visualizza DataFrame
 2: Visualizza le prime 5 righe
 3: Visualizza le ultime 5 righe
@@ -14,7 +14,7 @@ def menu():
     s = input(info)
     return s
 
-def main():
+def main(): # funzione main che richiama tutte le altre funzioni 
     df = Es1.genera_dataframe()
     while True:
         s = menu()
