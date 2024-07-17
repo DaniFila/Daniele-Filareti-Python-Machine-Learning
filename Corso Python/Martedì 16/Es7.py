@@ -1,7 +1,7 @@
 import numpy as np
 
-#creazione della matrice
-def crea_matrice():
+
+def crea_matrice(): #creazione della matrice
     while True:     #inserimento righe e colonne con un while finchè non viene inserito un valore accettabile
         try:        
             righe=int(input("Inserisci il numero di righe: "))
@@ -20,33 +20,27 @@ def crea_matrice():
 
     return matrice,righe,col    #return della matrice creata, delle righe e delle colonne
 
-#calcolo sottomatrice dalla prima riga alla penultima, e dalla prima colonna alla penultima
-def sotto_matrice(matrice,righe,col):
+def sotto_matrice(matrice,righe,col): #calcolo sottomatrice dalla prima riga alla penultima, e dalla prima colonna alla penultima
     print(f"\nSotto-Matrice centrale:\n {matrice[1:righe-1,1:col-1]}")    #sotto-matrice tramite Slicing
 
-#calcolo matrice trasposta
-def trasp_matrice(matrice):
+def trasp_matrice(matrice): #calcolo matrice trasposta
     trasposta=matrice.T     #metodo numpy per il calcolo della trasposta
     print("\nMatrice Trasposta: \n", trasposta)
 
-#somma degli elementi della matrice
-def somma_elem(matrice):
+def somma_elem(matrice): #somma degli elementi della matrice
     print(f"\nLa somma degli elementi della matrice è: {np.sum(matrice)}")
 
-#calcolo determinante della matrice se righe==col
-def det_mat(matrice,righe,col):
+def det_mat(matrice,righe,col): #calcolo determinante della matrice se righe==col
     if righe==col:
         print(f"\nIl determinante della matrice è: {np.linalg.det(matrice)}") #calcolo determinante tramite linalg.det solo se righe e colonne sono uguali
     else:
         print("\nNumero di righe e colonne diverso. Non si può calcolare il determinante. ")
 
-#moltiplicazione element-wise
-def molt_elem_wise(matrice,righe,col):
+def molt_elem_wise(matrice,righe,col): #moltiplicazione element-wise
     matrice2=np.random.randint(0,100,size=(righe,col))
     prodotto_matrici=matrice*matrice2   #prodotto elemento per elemento
     print(f"\nSeconda matrice generata:\n{matrice2}\n")
     print(f"Prodotto delle due matrici:\n {prodotto_matrici}")
 
-#calcolo media della matrice
-def media_mat(matrice):
+def media_mat(matrice): #calcolo media della matrice
     print(f"\nLa media degli elementi della matrice è: {np.mean(matrice)}")
