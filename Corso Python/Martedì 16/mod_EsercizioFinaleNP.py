@@ -44,3 +44,9 @@ def molt_elem_wise(matrice,righe,col): #moltiplicazione element-wise
 
 def media_mat(matrice): #calcolo media della matrice
     print(f"\nLa media degli elementi della matrice è: {np.mean(matrice)}")
+
+def matrice_inversa(matrice,righe,col): # funzione che calcola la matrice inversa
+    det = np.linalg.det(matrice)
+    if righe == col and det != 0: # la matrice è invertibile solo se è quadrata ed il suo determinante è diverso da 0
+        mat_inv = matrice.linalg.inv()
+    print(f"La matrice inversa è:\n{mat_inv}")
