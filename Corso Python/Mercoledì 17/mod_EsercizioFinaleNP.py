@@ -73,7 +73,7 @@ def filtro_mat(matrice): # funzione che filtra elementi della matrice
     else:
         print(f"Elementi della matrice con filtro eseguito:\n{matr_filtr}")
 
-def funzione_matematica(matrice):
+def funzione_matematica(matrice): # funzione che effettua funzioni matematiche alla matrice
     scelta = input("1. Sin - 2. Cos - 3. Exp: ")
     while True:
         if scelta == "1":
