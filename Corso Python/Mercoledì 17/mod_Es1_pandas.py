@@ -20,7 +20,6 @@ def visualizza_ultime_5_righe(df):
     d = df.tail()
     print(f"Le ultime 5 righe sono:\n{d}")
 
-df = genera_dataframe()
 
 def visualizza_tipo_dati(df):
     tipo = df.dtypes
