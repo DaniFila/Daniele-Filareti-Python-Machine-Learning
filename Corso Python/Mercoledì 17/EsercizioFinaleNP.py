@@ -27,23 +27,60 @@ def main(): #main
         if scelta=="1":         #Stampa matrice
             print(f"\nLa matrice 2D di partenza è:\n {mat}")
         elif scelta=="2":       #Estrai sottomatrice
-            mod1.sotto_matrice(mat,righe,col)
+            b = scelta
+            if b:
+                mat1,righe1,col1 = mod1.crea_matrice()
+                mod1.sotto_matrice(mat1,righe1,col1)
+            else:
+                mod1.sotto_matrice(mat,righe,col)
         elif scelta=="3":       #Matrice trasposta
-            mod1.trasp_matrice(mat)
+            if scelta():
+                mat1,righe1,col1 = mod1.crea_matrice()
+                mod1.trasp_matrice(mat1)
+            else:
+                mod1.trasp_matrice(mat)
         elif scelta=="4":       #Somma elementi matrice
-            mod1.somma_elem(mat)
+            if scelta():
+                mat1,righe1,col1 = mod1.crea_matrice()
+                mod1.somma_elem(mat1)
+            else:
+                mod1.somma_elem(mat)
         elif scelta=="5":       #Moltiplicazione element-wise
-            mod1.molt_elem_wise(mat,righe,col)
+            if scelta():
+                mat1,righe1,col1 = mod1.crea_matrice()
+                mod1.molt_elem_wise(mat1,righe1,col1)
+            else:
+                mod1.molt_elem_wise(mat,righe,col)
         elif scelta=="6":       #Media elementi matrice
-            mod1.media_mat(mat)
+            if scelta():
+                mat1,righe1,col1 = mod1.crea_matrice()
+                mod1.media_mat(mat1)
+            else:
+                mod1.media_mat(mat)
         elif scelta=="7":       #Calcolo determinante
-            mod1.det_mat(mat,righe,col)
+            if scelta():
+                mat1,righe1,col1 = mod1.crea_matrice()
+                mod1.det_mat(mat1,righe1,col1)
+            else:
+                mod1.det_mat(mat,righe,col)
         elif scelta=="8":
-            mod1.matrice_inversa(mat,righe,col)
+            if scelta():
+                mat1,righe1,col1 = mod1.crea_matrice()
+                mod1.matrice_inversa(mat1,righe1,col1)
+            else:
+                mod1.matrice_inversa(mat,righe,col)
         elif scelta=="9":
-            mod1.filtro_mat(mat)
+            if scelta():
+                mat1,righe1,col1 = mod1.crea_matrice()
+                mod1.filtro_mat(mat1)
+            else:
+                mod1.filtro_mat(mat)
         elif scelta=="10":
-            mod1.funzione_matematica(mat)
+            if scelta():
+                mat1,righe1,col1 = mod1.crea_matrice()
+                mod1.funzione_matematica(mat1)
+            else:
+                mod1.funzione_matematica(mat)
         elif scelta=="0":       #Esci
             break
         else:
