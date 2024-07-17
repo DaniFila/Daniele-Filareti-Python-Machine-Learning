@@ -83,7 +83,7 @@ def filtro_mat(matrice): # funzione che filtra elementi della matrice
             break
         else:
             print("Indicare scelta valida")
-    if matr_filtr == []:
+    if len(matr_filtr) == 0:
         print("Nessun elemento dopo il filtro!")
     else:
         print(f"Elementi della matrice con filtro eseguito:\n{matr_filtr}")
