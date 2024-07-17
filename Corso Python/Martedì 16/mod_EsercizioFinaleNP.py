@@ -1,3 +1,5 @@
+# Daniele,Matteo,Danilo
+
 import numpy as np
 
 
@@ -66,7 +68,10 @@ def filtro_mat(matrice): # funzione che filtra elementi della matrice
             break
         else:
             print("Indicare scelta valida")
-    print(f"Elementi della matrice con filtro eseguito:\n{matr_filtr}")
+    if matr_filtr == []:
+        print("Nessun elemento dopo il filtro!")
+    else:
+        print(f"Elementi della matrice con filtro eseguito:\n{matr_filtr}")
 
 def funzione_matematica(matrice):
     scelta = input("1. Sin - 2. Cos - 3. Exp: ")
