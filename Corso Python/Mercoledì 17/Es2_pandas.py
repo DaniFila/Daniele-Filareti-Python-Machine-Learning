@@ -25,7 +25,10 @@ def main(): # funzione main che richiama la classe menù e la classe Vendite del
         elif scelta == "2":
             df.aggiungi_totale_vendite()
         elif scelta == "3":
-            df.raggruppa_vendite_per_prodotto()
+            try:
+                df.raggruppa_vendite_per_prodotto()
+            except:
+                print("\nColonna Vendite Totali non creata!")
         elif scelta == "4":
             try:  # verifica per l'operazione che la colonna Vendite Totali sia creata
                 df.prodotto_più_venduto_su_quantità()
