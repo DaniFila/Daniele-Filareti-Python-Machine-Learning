@@ -32,14 +32,19 @@ class Vendite:
         print(f"La città con maggior volume di vendite totali è:\n{città_maggiore}")
 
     def nuovo_dataframe_filtrato(self): # metodo per filtrare le vendite totali su un numero
-        filtro = int(input("Indicare filtro vendite: "))
+        while True:
+            try:
+                filtro = int(input("Indicare filtro vendite: "))
+                break
+            except:
+                print("Inserire valore valido!")
         nuovo_dataframe = self.df.loc[self.df["Totale Vendite"]>filtro]
         print(f"Nuovo dataframe con vendite superiori a {filtro}:\n{nuovo_dataframe}")
 
     def ordina_tot_vendite_desc(self): # metodo per ordinare il totale delle vendite in maniera decrescente
         self.df = self.df.sort_values(by="Totale Vendite",ascending=False) # il sort value ci permette di ordinare i valori specificando con by la colonna e con ascending l'ordinamento
         print(f"Ordinato con successo per Totale Vendite!\n{self.df}")
-        
+
     def visualizza_vendite_per_città(self): # metodo per visualizzare le vendite totali di tutte le città
         vendite_per_città = self.df.groupby("Città").agg({"Totale Vendite":"sum"})
         print(vendite_per_città)
