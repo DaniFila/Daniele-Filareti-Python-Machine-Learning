@@ -12,7 +12,27 @@ def genera_dataframe():
     df = pd.DataFrame(data)
     return df
 
+def visualizza_prime_5_righe(df):
+    d = df.head()
+    print(f"Le prime 5 righe sono:\n{d}")
+
+def visualizza_ultime_5_righe(df):
+    d = df.tail()
+    print(f"Le ultime 5 righe sono:\n{d}")
+
+df = genera_dataframe()
 
 
+def visualizza_tipo_dati(df):
+    tipo = df.dtypes
+    print(f"I tipi di dati sono:\n{tipo}")
 
 
+def descrivi_stato(df):
+    descrivi = df.describe()
+    print(f"Descrizione:\n{descrivi}")
+
+descrivi_stato(df)
+#descriptive_stats = df.describe()
+
+#df_no_duplicates = df.drop_duplicates()
