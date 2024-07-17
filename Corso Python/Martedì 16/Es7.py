@@ -1,39 +1,52 @@
-import mod_Es7 as mod1     #import modulo con funzioni
+import numpy as np
 
-def menu(): #menu
-    print("""1. Stampa matrice
-2. Estrai sottomatrice
-3. Matrice trasposta        
-4. Somma elementi matrice
-5. Moltiplicazione element-wise
-6. Media elementi matrice
-7. Calcolo determinante                     
-0. Esci
-""")
-    scelta_menu=input("Inserisci una scelta: ")
-    return scelta_menu
-
-def main(): #main
-    mat,righe,col=mod1.crea_matrice()
-    while True:
-        scelta=menu()
-        if scelta=="1": #Stampa matrice
-            print(f"\nLa matrice è:\n {mat}")
-        elif scelta=="2":       #Estrai sottomatrice
-            mod1.sotto_matrice(mat,righe,col)
-        elif scelta=="3":       #Matrice trasposta
-            mod1.trasp_matrice(mat)
-        elif scelta=="4":       #Somma elementi matrice
-            mod1.somma_elem(mat)
-        elif scelta=="5":       #Moltiplicazione element-wise
-            mod1.molt_elem_wise(mat,righe,col)
-        elif scelta=="6":       #Media elementi matrice
-            mod1.media_mat(mat)
-        elif scelta=="7":       #Calcolo determinante
-            mod1.det_mat(mat,righe,col)
-        elif scelta=="0":       #Esci
+#creazione della matrice
+def crea_matrice():
+    while True:     #inserimento righe e colonne con un while finchè non viene inserito un valore accettabile
+        try:        
+            righe=int(input("Inserisci il numero di righe: "))
             break
-        else:
-            print("Scelta sbagliata")
+        except ValueError as e:
+            print("\nErrore nel valore passato:", e, "\nInserisci un valore intero valido! \n")   #except con ValueError nel caso in cui si inserisce un valore non intero
+    while True:
+        try:
+            col=int(input("Inserisci il numero di colonne: "))
+            break
+        except ValueError as e:
+            print("\nErrore nel valore passato:", e, "\nInserisci un valore intero valido! \n")   #except con ValueError nel caso in cui si inserisce un valore non intero
 
-main()      #richiamo al main
+    matrice = np.random.randint(0,100,size=(righe,col))
+    print(f"\nLa matrice 2D di partenza è:\n {matrice}")
+
+    return matrice,righe,col    #return della matrice creata, delle righe e delle colonne
+
+#calcolo sottomatrice dalla prima riga alla penultima, e dalla prima colonna alla penultima
+def sotto_matrice(matrice,righe,col):
+    print(f"\nSotto-Matrice centrale:\n {matrice[1:righe-1,1:col-1]}")    #sotto-matrice tramite Slicing
+
+#calcolo matrice trasposta
+def trasp_matrice(matrice):
+    trasposta=matrice.T     #metodo numpy per il calcolo della trasposta
+    print("\nMatrice Trasposta: \n", trasposta)
+
+#somma degli elementi della matrice
+def somma_elem(matrice):
+    print(f"\nLa somma degli elementi della matrice è: {np.sum(matrice)}")
+
+#calcolo determinante della matrice se righe==col
+def det_mat(matrice,righe,col):
+    if righe==col:
+        print(f"\nIl determinante della matrice è: {np.linalg.det(matrice)}") #calcolo determinante tramite linalg.det solo se righe e colonne sono uguali
+    else:
+        print("\nNumero di righe e colonne diverso. Non si può calcolare il determinante. ")
+
+#moltiplicazione element-wise
+def molt_elem_wise(matrice,righe,col):
+    matrice2=np.random.randint(0,100,size=(righe,col))
+    prodotto_matrici=matrice*matrice2   #prodotto elemento per elemento
+    print(f"\nSeconda matrice generata:\n{matrice2}\n")
+    print(f"Prodotto delle due matrici:\n {prodotto_matrici}")
+
+#calcolo media della matrice
+def media_mat(matrice):
+    print(f"\nLa media degli elementi della matrice è: {np.mean(matrice)}")
