@@ -3,7 +3,7 @@
 import numpy as np
 
 
-def crea_matrice(): #creazione della matrice
+def crea_matrice():
     while True:     #inserimento righe e colonne con un while finchè non viene inserito un valore accettabile
         try:        
             righe=int(input("Inserisci il numero di righe: "))
@@ -17,7 +17,17 @@ def crea_matrice(): #creazione della matrice
         except ValueError as e:
             print("\nErrore nel valore passato:", e, "\nInserisci un valore intero valido! \n")   #except con ValueError nel caso in cui si inserisce un valore non intero
 
-    matrice = np.random.randint(0,100,size=(righe,col))
+    variabile = input("Vuoi inserire un numero casuale(1) o inserirli da input(2) ? ")
+    if variabile == "1":
+        matrice = np.random.randint(0,100,size=(righe,col))
+    elif variabile == "2":
+        v=np.zeros(righe*col)
+        for i in range(righe*col):
+            inp=int(input("Inserisci il valore: "))
+            v[i]=inp
+
+        matrice = v.reshape(righe, col)
+
     print(f"\nLa matrice 2D di partenza è:\n {matrice}")
 
     return matrice,righe,col    #return della matrice creata, delle righe e delle colonne
