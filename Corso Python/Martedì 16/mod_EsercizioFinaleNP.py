@@ -68,4 +68,22 @@ def filtro_mat(matrice): # funzione che filtra elementi della matrice
             print("Indicare scelta valida")
     print(f"Elementi della matrice con filtro eseguito:\n{matr_filtr}")
 
+def funzione_matematica(matrice):
+    scelta = input("1. Sin - 2. Cos - 3. Exp: ")
+    while True:
+        if scelta == "1":
+            seno = np.sin(matrice)
+            print("Seno dei valori: \n", seno)
+            break
+        elif scelta == "2":
+            coseno = np.cos(matrice)
+            print("Coseno dei valori: \n", coseno)
+            break
+        elif scelta == "3":
+            esponenziale = np.exp(matrice)
+            print("Esponenziale dei valori: \n", esponenziale)
+            break
+        else:
+            print("Scelta non valida!")
+
 
