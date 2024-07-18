@@ -29,3 +29,23 @@ df_sorted = df.sort_values(by='età')
 
 # Unione di due DataFrame
 merged_df = pd.merge(df, df_csv, on='nome')
+
+#--------------------------------------------------------------------------------------------------------------------------
+
+# Applicazione di una funzione a una colonna
+df['età_doppia'] = df['età'].apply(lambda x: x * 2)
+
+#--------------------------------------------------------------------------------------------------------------------------
+
+# Ordinamento dei dati per età
+df_sorted = df.sort_values(by='età')
+
+# Unione di due DataFrame
+merged_df = pd.merge(df, df_csv, on='nome')
+
+#--------------------------------------------------------------------------------------------------------------------------
+
+# Applicazione di una funzione a una colonna
+df['età_doppia'] = df['età'].apply(lambda x: x * 2)
+
+#--------------------------------------------------------------------------------------------------------------------------
