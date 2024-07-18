@@ -17,15 +17,15 @@ df_clean = df.dropna()
 #--------------------------------------------------------------------------------------------------------------------------
 
 # Selezione di una colonna
-ages = df['età']
+ages = df['Età']
 
 # Filtraggio basato su una condizione
-adults = df[df['età'] >= 18]
+adults = df[df['Età'] >= 18]
 
 #--------------------------------------------------------------------------------------------------------------------------
 
 # Ordinamento dei dati per età
-df_sorted = df.sort_values(by='età')
+df_sorted = df.sort_values(by='Età')
 
 # Unione di due DataFrame
 merged_df = pd.merge(df, df_csv, on='nome')
@@ -33,12 +33,12 @@ merged_df = pd.merge(df, df_csv, on='nome')
 #--------------------------------------------------------------------------------------------------------------------------
 
 # Applicazione di una funzione a una colonna
-df['età_doppia'] = df['età'].apply(lambda x: x * 2)
+df['età_doppia'] = df['Età'].apply(lambda x: x * 2)
 
 #--------------------------------------------------------------------------------------------------------------------------
 
 # Ordinamento dei dati per età
-df_sorted = df.sort_values(by='età')
+df_sorted = df.sort_values(by='Età')
 
 # Unione di due DataFrame
 merged_df = pd.merge(df, df_csv, on='nome')
@@ -46,6 +46,19 @@ merged_df = pd.merge(df, df_csv, on='nome')
 #--------------------------------------------------------------------------------------------------------------------------
 
 # Applicazione di una funzione a una colonna
-df['età_doppia'] = df['età'].apply(lambda x: x * 2)
+df['età_doppia'] = df['Età'].apply(lambda x: x * 2)
+
+#--------------------------------------------------------------------------------------------------------------------------
+
+# Esportazione di un DataFrame in un file CSV
+#df.to_csv('"Corso Python/Giovedì 18/pandas_creazione_caricamento.csv')
+
+#--------------------------------------------------------------------------------------------------------------------------
+
+# Generazione di una serie di date
+date_range = pd.date_range(start='2021-01-01', periods=10, freq='M')
+
+# Resampling dei dati di una serie temporale
+df_resampled = df.resample('M').mean()
 
 #--------------------------------------------------------------------------------------------------------------------------
