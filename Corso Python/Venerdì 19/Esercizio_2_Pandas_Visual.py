@@ -6,7 +6,7 @@ class Data:
     def __init__(self):
         self.df,self.data = self.crea_df()
 
-    def crea_df(self): # metodo per creare df con colonna Temperature prese randomiche
+    def crea_df(self): 
         data = {"Età":np.random.randint(0,100,30),
                 "Altezza":np.random.randint(100,200,30),
                 "Peso":np.random.randint(40,120,30)}
