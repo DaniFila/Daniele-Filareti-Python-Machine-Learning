@@ -9,3 +9,7 @@ plt.rcParams['figure.dpi'] = 100
 # Imposta la risoluzione delle figure in DPI
 
 plt.rcParams['figure.facecolor'] = 'violet'  # Colore di sfondo della figura
+
+sns.set_theme()  # Applica il tema di default di Seaborn
+
+sns.set_theme(style="dark")
