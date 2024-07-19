@@ -37,7 +37,14 @@ class Temperature:
         plt.ylabel('Valori')
         plt.show()
 
-a = Temperature()
-
-a.print_stats()
     
+def main():
+    a = Temperature()
+    s = input("Vuoi visualizzare statistiche? ").lower()
+    if s == "si":
+        a.print_stats()
+    else:
+        print("Arrivederci!")
+
+
+main()
