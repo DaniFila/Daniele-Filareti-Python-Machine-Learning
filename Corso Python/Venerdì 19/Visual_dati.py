@@ -8,4 +8,4 @@ plt.rcParams['figure.figsize'] = [10, 6]
 plt.rcParams['figure.dpi'] = 100          
 # Imposta la risoluzione delle figure in DPI
 
-plt.rcParams['figure.facecolor'] = 'white'  # Colore di sfondo della figura
+plt.rcParams['figure.facecolor'] = 'violet'  # Colore di sfondo della figura
