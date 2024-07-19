@@ -14,11 +14,11 @@ def graf_1():
 #-------------------------------------------------------------------------------------------------------
 # Grafico a Barre
 def graf_2():
-    categories = ['A', 'B', 'C', 'D', 'E']
-    values = [3, 7, 2, 5, 8]
+    categorie = ['A', 'B', 'C', 'D', 'E']
+    valori = [3, 7, 2, 5, 8]
 
     plt.figure()
-    plt.bar(categories, values)
+    plt.bar(categorie, valori)
     plt.title('Grafico a Barre')
     plt.xlabel('Categorie')
     plt.ylabel('Valori')
@@ -26,9 +26,9 @@ def graf_2():
 #-------------------------------------------------------------------------------------------------------
 # Istogramma
 def graf_3():
-    data = np.random.randn(1000)
+    dati = np.random.randn(1000)
     plt.figure()
-    plt.hist(data, bins=30)
+    plt.hist(dati, bins=30)
     plt.title('Istogramma')
     plt.xlabel('Valori')
     plt.ylabel('Frequenza')
