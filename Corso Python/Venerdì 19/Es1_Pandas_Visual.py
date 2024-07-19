@@ -34,7 +34,7 @@ class Temperature:
         plt.bar(cat, val)
         plt.title('STATISTICHE')
         plt.xlabel('TIPOLOGIA')
-        plt.ylabel('Valori')
+        plt.ylabel('GRADI')
         plt.show()
 
     
