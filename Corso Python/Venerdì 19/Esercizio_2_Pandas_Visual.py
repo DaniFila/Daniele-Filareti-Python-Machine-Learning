@@ -28,5 +28,4 @@ class Data:
         plt.show()
 
 a = Data()
-a.normalizzazione()
 a.visualizza()
