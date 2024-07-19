@@ -3,27 +3,27 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class Temperature:
-    def __init__(self):
+    def __init__(self): # metodo costruttore dove richiamo metodo per creare df
         self.df = self.crea_df()
 
-    def crea_df(self):
+    def crea_df(self): # metodo per creare df con colonna Temperature prese randomiche
         data = {"Temperature":np.random.randint(0,40,30)}
         df =pd.DataFrame(data)
         return df
     
-    def temp_max(self):
+    def temp_max(self): # metodo che restituisce la temperatura massima
         max = self.df["Temperature"].max()
         return max
-    def temp_min(self):
+    def temp_min(self): # metodo che restituisce la temperatura minima
         min = self.df["Temperature"].min()
         return min
-    def temp_mean(self):
+    def temp_mean(self): # metodo che restituisce la temperatura media
         mean = self.df["Temperature"].mean()
         return mean
-    def temp_median(self):
+    def temp_median(self): # metodo che restituisce la mediana della temperatura
         median = self.df["Temperature"].median()
         return median
-    def print_stats(self):
+    def print_stats(self): # metodo che visualizza un grafico a barre con tutte le statistiche del max,min,median,mean
         max = self.temp_max()
         min = self.temp_min()
         mean = self.temp_mean()
@@ -38,7 +38,7 @@ class Temperature:
         plt.show()
 
     
-def main():
+def main(): # funzione che richiede se si vogliono visualizzare le statistiche
     a = Temperature()
     s = input("Vuoi visualizzare statistiche? ").lower()
     if s == "si":
