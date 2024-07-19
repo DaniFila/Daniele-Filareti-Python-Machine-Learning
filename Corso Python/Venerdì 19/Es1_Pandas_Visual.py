@@ -12,10 +12,10 @@ class Temperature:
         return df
     
     def temp_max(self):
-        max = self.df["Temperature"].idxmax()
+        max = self.df["Temperature"].max()
         return max
     def temp_min(self):
-        min = self.df["Temperature"].idxmin()
+        min = self.df["Temperature"].min()
         return min
     def temp_mean(self):
         mean = self.df["Temperature"].mean()
