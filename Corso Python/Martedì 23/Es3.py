@@ -15,21 +15,36 @@ class Netflix:
 
 
     def pulizia(self):
-        self.df["rating"].fillna("G",inplace=True)
-        self.df["duration"].fillna("Not Defined",inplace=True)
+        """self.df["rating"].fillna("G",inplace=True)
+        self.df["duration"].fillna("Not Defined",inplace=True)"""
+        self.df.loc[self.df["rating"].isnull()] = "G"
+        self.df.loc[self.df["duration"].isnull()] = "Not Defined"
         self.df.dropna(inplace=True)
         print("\nIl Dataset è stato pulito con successo!")
 
+    def df_movie(self):
+        df_movie_ = self.df.loc[self.df["type"] == "Movie"] 
+        return df_movie_
+    def df_series(self):
+        df_series_ = self.df.loc[self.df["type"] == "TV Show"]
+        return df_series_
     
     def visualizza_df(self):
         print(f"DataSet:\n{self.df}")
 
+    def prep_corr_rating(self):
+        rating = self.df["rating"]
+        rating.drop_duplicates(inplace=True)
+        print(rating)
+    """def sost_rating(self,rat):
+        dizionario = {"PG-13":1,"TV-MA":2,"PG":3,"TV-14":4,"TV-PG":5,"TV-Y":6,"TV-Y7":7,"R":8}"""
     def preprazione_correlazione(self):
         self.df['type'] = self.df['type'].apply(lambda x: 1 if x == 'Movie' else 0)
-        type = self.df["type"]
+        """type = self.df["type"]
         anno_uscita = self.df["release_year"]
-        data = {"type":type,"release_year":anno_uscita}
-        df_corr = pd.DataFrame(data)
+        data = {"type":type,"release_year":anno_uscita}"""
+        df_corr = self.df[["type","release_year"]]
+        #df_corr = pd.DataFrame(data)
         df_corr = df_corr.corr()
         return df_corr
     def visualizza_correlazione(self):
@@ -71,6 +86,5 @@ def main():
             break
         else:
             print("\nScelta non valida!")
-
 
 main()
