@@ -43,6 +43,7 @@ def contenuto_leggibile(contenuto):
 
 
 
+
 contenuto = table_scraping(driver)
 
 contenuto_leggibile(contenuto)
