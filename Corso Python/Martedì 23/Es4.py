@@ -53,6 +53,18 @@ class Classe_Studenti:
 
         return stud1_df,stud2_df
     
+
+    def visualizza_stats(self):
+        stud1_df,stud2_df = self.calcola_stats()
+        plt.figure()
+        plt.plot(stud1_df["Media"],"green")
+        plt.plot(stud2_df["Media"],"blue")
+        plt.title("Medie Alunni Peppino e Antonio")
+        plt.legend(["Peppino","Antonio"])
+        plt.xlabel("Mesi")
+        plt.ylabel("Voti")
+        plt.show()
+        
     def visualizza_stats_subplot(self):
         stud1_df,stud2_df = self.calcola_stats()
         plt.figure()
