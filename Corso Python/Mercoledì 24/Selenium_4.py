@@ -29,11 +29,14 @@ def dynamic_form(driver):
     """
     # Il tuo codice qui
     driver.get("https://demoqa.com/dynamic-properties")
-    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH,"/html/body/div[2]/div/div/div/div[2]/div[2]/button[3]")))
-    pulsante = driver.find_element(By.XPATH,"/html/body/div[2]/div/div/div/div[2]/div[2]/button[3]")
-    pulsante.click()
-    driver.quit()
-    print("Pulsante apparso e cliccato!")
+    try:
+        WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH,"/html/body/div[2]/div/div/div/div[2]/div[2]/button[3]")))
+        pulsante = driver.find_element(By.XPATH,"/html/body/div[2]/div/div/div/div[2]/div[2]/button[3]")
+        pulsante.click()
+        driver.quit()
+        print("Pulsante apparso e cliccato!")
+    except:
+        print("Pulsante non trovato!")
 
 
 dynamic_form(driver)
