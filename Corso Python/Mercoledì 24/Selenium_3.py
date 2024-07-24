@@ -35,13 +35,11 @@ def table_scraping(driver):
 
 def contenuto_leggibile(contenuto):
     tabella= []
-    t = ""
     lista_grezza = contenuto.split("\n")
     for riga in lista_grezza:
         tabella.append(riga.split(","))
     for riga in tabella:
         print(riga,end="\n")
-    
 
 
 
