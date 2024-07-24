@@ -17,7 +17,6 @@ def setup_driver():
     #driver = webdriver.Chrome(options=chrome_options)
     driver = webdriver.Chrome()
     return driver
-
 driver = setup_driver()
 
 def table_scraping(driver):
