@@ -37,7 +37,8 @@ def contenuto_leggibile(contenuto):
     tabella = []
     righe = contenuto.split("\n")
     for riga in righe[1:]:
-        tabella.append(riga.rsplit(" ",2))
+        elementi = riga.split(" ")
+        tabella.append([" ".join(elementi[0:-3])," ".join(elementi[-3:-1]),elementi[-1]])
     colonne = righe[0].split()
     df = pd.DataFrame(tabella,columns=colonne)
     print(df)
