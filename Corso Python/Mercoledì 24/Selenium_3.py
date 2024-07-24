@@ -34,12 +34,13 @@ def table_scraping(driver):
     return contenuto
 
 def contenuto_leggibile(contenuto):
-    tabella= []
-    lista_grezza = contenuto.split("\n")
-    for riga in lista_grezza:
-        tabella.append(riga.split(","))
-    for riga in tabella:
-        print(riga,end="\n")
+    tabella = []
+    righe = contenuto.split("\n")
+    for riga in righe[1:]:
+        tabella.append(riga.rsplit(" ",2))
+    colonne = righe[0].split()
+    df = pd.DataFrame(tabella,columns=colonne)
+    print(df)
 
 
 
