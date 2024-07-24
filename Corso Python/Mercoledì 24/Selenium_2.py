@@ -32,9 +32,12 @@ def practice_login(driver):
     password.send_keys("Password123")
     submit = driver.find_element(By.ID,"submit")
     submit.click()
-    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CLASS_NAME,"post-title")))
-    result = driver.find_element(By.CLASS_NAME,"post-title")
-    print(result.text)
+    try:
+        WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CLASS_NAME,"post-title")))
+        result = driver.find_element(By.CLASS_NAME,"post-title")
+        print(result.text)
+    except:
+        print("Credenziali errate!")
 
 
 driver = setup_driver()
