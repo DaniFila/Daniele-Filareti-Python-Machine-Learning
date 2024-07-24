@@ -14,7 +14,7 @@ def setup_driver():
     #chrome_options = Options()
     #chrome_options.add_argument("--headless")  # Esecuzione in background
     #driver = webdriver.Chrome(options=chrome_options)
-    driver = webdriver.Chrome("--headless")
+    driver = webdriver.Chrome()
     return driver
 
 
