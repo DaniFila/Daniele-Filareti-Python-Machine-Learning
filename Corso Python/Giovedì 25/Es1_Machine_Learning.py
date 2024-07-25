@@ -8,11 +8,8 @@ import matplotlib.pyplot as plt
 
 class Calorie:
     def __init__(self):
-        self.df = self.leggi_df()
+        self.df = pd.read_csv("Corso Python/Giovedì 25/calorie.csv")
     
-    def leggi_df(self):
-        df = pd.read_csv("Corso Python/Giovedì 25/calorie.csv")
-        return df
     def regressione_lineare(self):
         X = self.df[["kg"]]
         y = self.df["calories"]
