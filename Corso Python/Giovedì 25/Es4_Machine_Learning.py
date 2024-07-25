@@ -21,8 +21,23 @@ class Case:
         print(f"Coefficiente: {model.coef_}")
         print(f"Errore quadratico medio: {mean_squared_error(y_test,y_pred)}")
         print(f"Coefficiente di determinazione: {r2_score(y_test,y_pred)}")
-        display = PredictionErrorDisplay(y_true=y_test, y_pred=y_pred)
+        """display = PredictionErrorDisplay(y_true=y_test, y_pred=y_pred)
         display.plot()
+        plt.show()"""
+        plt.subplot(2,1,1)
+        plt.scatter(X_test["X2 house age"], y_test)
+        plt.plot(X_test["X2 house age"],y_pred)
+        plt.title("Regressione lineare età case/prezzo case")
+        plt.xticks(())
+        plt.yticks(())
+
+        plt.subplot(2,1,2)
+        plt.scatter(X_test["X3 distance to the nearest MRT station"], y_test)
+        plt.plot(X_test["X3 distance to the nearest MRT station"],y_pred)
+        plt.title("Regressione lineare distanza dalla stazione/prezzo case")
+
+        plt.xticks(())
+        plt.yticks(())
         plt.show()
 
 
