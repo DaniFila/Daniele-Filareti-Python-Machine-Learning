@@ -21,7 +21,6 @@ class Case:
         print(f"Coefficiente: {model.coef_}")
         print(f"Errore quadratico medio: {mean_squared_error(y_test,y_pred)}")
         print(f"Coefficiente di determinazione: {r2_score(y_test,y_pred)}")
-        print(f"Predizioni:\n{y_pred}")
         display = PredictionErrorDisplay(y_true=y_test, y_pred=y_pred)
         display.plot()
         plt.show()
