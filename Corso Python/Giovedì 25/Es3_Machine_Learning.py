@@ -3,6 +3,7 @@ from sklearn.metrics import r2_score,mean_squared_error
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
+from sklearn.metrics import PredictionErrorDisplay
 
 
 class Studenti:
@@ -20,7 +21,13 @@ class Studenti:
         print(f"Errore quadratico medio: {mean_squared_error(y_test,y_pred)}")
         print(f"Coefficiente di determinazione: {r2_score(y_test,y_pred)}")
         print(f"Predizioni:\n{y_pred}")
-        plt.subplot(2,1,1)
+        display = PredictionErrorDisplay(y_true=y_test, y_pred=y_pred)
+        display.plot()
+        plt.show()
+
+
+
+        """plt.subplot(2,1,1)
         plt.scatter(X_test["Hours Studied"], y_test)
         plt.plot(X_test["Hours Studied"],y_pred)
         plt.title("Regressione lineare ore di studio/indice di performance")
@@ -34,7 +41,7 @@ class Studenti:
 
         plt.xticks(())
         plt.yticks(())
-        plt.show()
+        plt.show()"""
 
 
 
