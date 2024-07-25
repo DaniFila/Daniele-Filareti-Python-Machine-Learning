@@ -20,6 +20,22 @@ class Studenti:
         print(f"Errore quadratico medio: {mean_squared_error(y_test,y_pred)}")
         print(f"Coefficiente di determinazione: {r2_score(y_test,y_pred)}")
         print(f"Predizioni:\n{y_pred}")
+        plt.subplot(2,1,1)
+        plt.scatter(X_test["Hours Studied"], y_test)
+        plt.plot(X_test["Hours Studied"],y_pred)
+        plt.title("Regressione lineare ore di studio/indice di performance")
+        plt.xticks(())
+        plt.yticks(())
+
+        plt.subplot(2,1,2)
+        plt.scatter(X_test["Sleep Hours"], y_test)
+        plt.plot(X_test["Sleep Hours"],y_pred)
+        plt.title("Regressione lineare ore di sonno/indice di performance")
+
+        plt.xticks(())
+        plt.yticks(())
+        plt.show()
+
 
 
 
