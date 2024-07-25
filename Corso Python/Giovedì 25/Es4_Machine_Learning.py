@@ -25,17 +25,16 @@ class Case:
         display.plot()
         plt.show()"""
         plt.subplot(2,1,1)
+        plt.scatter(X_test["X2 house age"],y_pred)
         plt.scatter(X_test["X2 house age"], y_test)
-        plt.plot(X_test["X2 house age"],y_pred)
         plt.title("Regressione lineare età case/prezzo case")
         plt.xticks(())
         plt.yticks(())
 
         plt.subplot(2,1,2)
+        plt.scatter(X_test["X3 distance to the nearest MRT station"],y_pred)
         plt.scatter(X_test["X3 distance to the nearest MRT station"], y_test)
-        plt.plot(X_test["X3 distance to the nearest MRT station"],y_pred)
         plt.title("Regressione lineare distanza dalla stazione/prezzo case")
-
         plt.xticks(())
         plt.yticks(())
         plt.show()
