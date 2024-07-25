@@ -16,7 +16,7 @@ class Calorie:
     def regressione_lineare(self):
         X = self.df[["kg"]]
         y = self.df["calories"]
-        X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2)
+        X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2)
         modello = LinearRegression()
         modello.fit(X_train,y_train)
         y_pred = modello.predict(X_test)
