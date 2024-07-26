@@ -69,7 +69,7 @@ for k in ker:
     accuratezza = accuracy_score(y_test, y_pred)
     print(f'Kernel: {k}, Accuratezza: {accuratezza}')
     plot_training_data_with_decision_boundary(k)
-    ConfusionMatrixDisplay.from_estimator(model,X_train,y_test)
+    ConfusionMatrixDisplay.from_estimator(model,X_train,y_train)
     plt.show()
 
 
