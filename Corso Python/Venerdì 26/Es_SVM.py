@@ -12,12 +12,12 @@ y = y[y != 1]
 #grafico per vedere il dataset nella totalità
 import matplotlib.pyplot as plt
 
-_, ax = plt.subplots()
+"""_, ax = plt.subplots()
 scatter = ax.scatter(iris.data[:, 0], iris.data[:, 1], c=iris.target)
 ax.set(xlabel=iris.feature_names[0], ylabel=iris.feature_names[1])
 _ = ax.legend(
     scatter.legend_elements()[0], iris.target_names, loc="lower right", title="Classes"
-)
+)"""
 
 def plot_training_data_with_decision_boundary(kernel):
     # Train the SVC
