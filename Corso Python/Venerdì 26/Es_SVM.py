@@ -1,7 +1,7 @@
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn import svm 
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score,ConfusionMatrixDisplay
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.inspection import DecisionBoundaryDisplay
@@ -68,8 +68,9 @@ for k in ker:
     y_pred = model.predict(X_test)
     accuratezza = accuracy_score(y_test, y_pred)
     print(f'Kernel: {k}, Accuratezza: {accuratezza}')
-    plot_training_data_with_decision_boundary("linear")
-
+    plot_training_data_with_decision_boundary(k)
+    ConfusionMatrixDisplay.from_estimator(model,X_train,y_train)
+    plt.show()
 
 
 
